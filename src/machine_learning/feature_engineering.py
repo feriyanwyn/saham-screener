@@ -2,7 +2,18 @@
 from typing import Tuple
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
+try:
+    from sklearn.preprocessing import StandardScaler
+except ImportError:
+    class StandardScaler:
+        """Lightweight numpy fallback when scikit-learn is omitted in serverless deploy."""
+        def fit_transform(self, X: np.ndarray) -> np.ndarray:
+            self.mean_ = np.mean(X, axis=0)
+            self.scale_ = np.where(np.std(X, axis=0) == 0, 1.0, np.std(X, axis=0))
+            return (X - self.mean_) / self.scale_
+
+        def transform(self, X: np.ndarray) -> np.ndarray:
+            return (X - self.mean_) / self.scale_
 
 
 class FeatureEngineer:

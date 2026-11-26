@@ -1,8 +1,19 @@
 """PyTorch Neural Network Models: LSTM Regressor & BiLSTM Classifier.
 Memenuhi persyaratan Section C: Model LSTM dan BiLSTM tanpa data leakage masa depan.
 """
-import torch
-import torch.nn as nn
+from __future__ import annotations
+try:
+    import torch
+    import torch.nn as nn
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
+    torch = None
+
+    class _DummyNN:
+        class Module:
+            pass
+    nn = _DummyNN()
 
 
 class LSTMReturnRegressor(nn.Module):

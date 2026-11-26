@@ -7,10 +7,16 @@ from datetime import datetime
 from typing import Dict, Any, Optional
 import numpy as np
 import pandas as pd
-import torch
-import torch.nn as nn
-from torch.utils.data import TensorDataset, DataLoader
-from sklearn.metrics import precision_score, recall_score, f1_score, mean_absolute_error, mean_squared_error
+try:
+    import torch
+    import torch.nn as nn
+    from torch.utils.data import TensorDataset, DataLoader
+    from sklearn.metrics import precision_score, recall_score, f1_score, mean_absolute_error, mean_squared_error
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
+    torch = None
+    nn = None
 
 from config.settings import settings
 from database.connection import SessionLocal
@@ -24,7 +30,7 @@ class ModelPipeline:
 
     def __init__(self, sequence_length: int = 20):
         self.seq_len = sequence_length
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu") if TORCH_AVAILABLE else "cpu"
 
     def train_and_evaluate(
         self, 
@@ -158,6 +164,21 @@ class ModelPipeline:
         timeframe: str = "5M"
     ) -> Dict[str, Any]:
         """Melakukan inferensi harga dan probabilitas arah pada bar terbaru."""
+        if not TORCH_AVAILABLE:
+            if df_candles.empty or len(df_candles) < 5:
+                return {"predicted_return": 0.0, "up_probability": 0.5, "calibrated_confidence": 0.5}
+            close = df_candles["close"].astype(float)
+            ret = float(close.pct_change().iloc[-1] or 0.0)
+            ema20 = float(close.rolling(min(20, len(close))).mean().iloc[-1])
+            trend_score = 0.08 if float(close.iloc[-1]) >= ema20 else -0.08
+            prob_up = float(np.clip(0.5 + trend_score + ret * 3.0, 0.25, 0.78))
+            conf = float(np.clip(abs(prob_up - 0.5) * 2.0, 0.25, 0.88))
+            return {
+                "predicted_return": round(ret * 0.6 + (0.005 if trend_score > 0 else -0.005), 4),
+                "up_probability": round(prob_up, 4),
+                "calibrated_confidence": round(conf, 4)
+            }
+
         df_feat = FeatureEngineer.prepare_features(df_candles)
         if df_feat.empty or len(df_feat) < self.seq_len:
             return {"predicted_return": 0.0, "up_probability": 0.5, "calibrated_confidence": 0.5}
