@@ -1894,16 +1894,28 @@
       document.getElementById('ana-tp').innerText = tp.toLocaleString('id-ID');
       document.getElementById('ana-rr').innerText = `1.85x`;
 
-      // Update Technicals from real series
-      const rsiVal = histData?.rsi_14 || quoteData?.rsi_14 || (50 + changePct * 3.0);
-      document.getElementById('ana-rsi').innerText = rsiVal.toFixed(1);
+      // Update Technicals from real time-series
+      const rsiVal = (histData?.rsi_14 !== undefined ? histData.rsi_14 : quoteData?.rsi_14) ?? (50 + changePct * 3.0);
+      document.getElementById('ana-rsi').innerText = Number(rsiVal).toFixed(1);
       
-      const relVolVal = quoteData?.relative_volume || (quoteData?.volume ? Math.max(0.7, quoteData.volume / 10_000_000) : 1.25);
-      document.getElementById('ana-relvol').innerText = `${relVolVal.toFixed(2)}x`;
+      const relVolVal = (histData?.relative_volume !== undefined ? histData.relative_volume : quoteData?.relative_volume) || (quoteData?.volume ? Math.max(0.7, quoteData.volume / 10_000_000) : 1.25);
+      document.getElementById('ana-relvol').innerText = `${Number(relVolVal).toFixed(2)}x`;
       
-      const vwapVal = Math.round(price * 0.998 / tick) * tick;
-      document.getElementById('ana-vwap').innerText = vwapVal.toLocaleString('id-ID');
+      const vwapVal = histData?.vwap || (Math.round(price * 0.998 / tick) * tick);
+      document.getElementById('ana-vwap').innerText = Number(vwapVal).toLocaleString('id-ID');
       document.getElementById('ana-atr').innerText = (tick * 4).toString();
+
+      // Sync real-time price & indicators back to Screener + Catalog so both tabs always match
+      const scMatch = allScreenerStocks.find(s => s.ticker === ticker);
+      if (scMatch && (quoteData || histData)) {
+        scMatch.last_price = price;
+        scMatch.change_pct = Number(changePct.toFixed(2));
+        scMatch.rsi_14 = Number(Number(rsiVal).toFixed(1));
+        scMatch.relative_volume = Number(Number(relVolVal).toFixed(2));
+        scMatch.signal = sig;
+      }
+      const catMatch = IDX_STOCK_CATALOG.find(c => c.ticker === ticker);
+      if (catMatch && (quoteData || histData)) catMatch.price = price;
 
       // Fetch AI Next-Day (T+1) Prediction
       let t1Data = null;
@@ -2374,9 +2386,14 @@
           const data = await res.json();
           if (data.results && data.results.length > 0) {
             allScreenerStocks = data.results;
-            // Sinkronisasi otomatis ke katalog pencarian global navbar
+            // Sinkronisasi otomatis ke katalog pencarian global navbar (update harga real-time)
             data.results.forEach(r => {
-              if (!IDX_STOCK_CATALOG.some(c => c.ticker === r.ticker)) {
+              const existing = IDX_STOCK_CATALOG.find(c => c.ticker === r.ticker);
+              if (existing) {
+                existing.price = r.last_price;
+                existing.name = r.name || existing.name;
+                existing.sector = r.sector || existing.sector;
+              } else {
                 IDX_STOCK_CATALOG.push({
                   ticker: r.ticker,
                   name: r.name,

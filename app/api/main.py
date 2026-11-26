@@ -686,6 +686,117 @@ def run_backtest_simulation(req: BacktestRequest, provider_name: Optional[str] =
 # Dedicated Real IDX Market Endpoints (Yahoo Finance .JK)
 # =====================================================================
 
+def _batch_fetch_real_quotes_timeseries(seed_items: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    """Batch-fetch real 1-month daily time-series OHLCV from Yahoo Finance (.JK) for fast, accurate screener quotes."""
+    results: Dict[str, Dict[str, Any]] = {}
+    if not seed_items:
+        return results
+
+    seed_map = {s["ticker"]: s for s in seed_items}
+    chunk_size = 120
+    for start in range(0, len(seed_items), chunk_size):
+        chunk = seed_items[start : start + chunk_size]
+        jk_tickers = [f"{s['ticker']}.JK" for s in chunk]
+        try:
+            df_all = yf.download(
+                jk_tickers,
+                period="1mo",
+                interval="1d",
+                group_by="ticker",
+                threads=True,
+                progress=False,
+            )
+            if df_all is None or df_all.empty:
+                continue
+
+            is_multi = isinstance(df_all.columns, pd.MultiIndex)
+            for s in chunk:
+                ticker = s["ticker"]
+                jk = f"{ticker}.JK"
+                try:
+                    sub = df_all[jk] if is_multi else df_all
+                    sub = sub.dropna(subset=["Close"])
+                    if sub.empty or len(sub) < 2:
+                        continue
+
+                    last_row = sub.iloc[-1]
+                    prev_row = sub.iloc[-2]
+                    last_price = round(float(last_row["Close"]), 0)
+                    prev_close = round(float(prev_row["Close"]), 0)
+                    if last_price <= 0:
+                        continue
+
+                    day_open = round(float(last_row.get("Open", prev_close)), 0)
+                    day_high = round(float(last_row.get("High", last_price)), 0)
+                    day_low = round(float(last_row.get("Low", last_price)), 0)
+                    volume = int(last_row.get("Volume", 0) or 0)
+
+                    avg_vol = float(sub["Volume"].iloc[:-1].mean()) if len(sub) > 2 else float(volume or 1)
+                    rel_vol = round(max(0.1, min(5.0, (volume / avg_vol) if avg_vol > 0 else 1.0)), 2)
+
+                    rsi_series = TechnicalAnalysisEngine.calculate_rsi(sub["Close"], period=14)
+                    rsi_val = float(rsi_series.iloc[-1]) if not rsi_series.empty and not pd.isna(rsi_series.iloc[-1]) else 50.0
+                    rsi_est = round(max(5.0, min(95.0, rsi_val)), 1)
+
+                    change = round(last_price - prev_close, 2)
+                    change_pct = round((change / prev_close) * 100, 2) if prev_close else 0.0
+
+                    if change_pct >= 1.5 and rel_vol >= 1.1:
+                        signal = "BUY"
+                        score = min(96, int(72 + change_pct * 3 + rel_vol * 4))
+                    elif change_pct <= -1.8:
+                        signal = "SELL"
+                        score = max(20, int(42 + change_pct * 4))
+                    elif change_pct > 0:
+                        signal = "BUY" if rel_vol >= 1.3 else "HOLD"
+                        score = min(90, int(58 + change_pct * 2 + rel_vol * 3))
+                    else:
+                        signal = "HOLD"
+                        score = max(35, int(48 + change_pct * 2))
+
+                    if change_pct >= 0.8 or (score >= 65 and rel_vol >= 1.05):
+                        next_day_dir = "NAIK"
+                        next_day_prob = min(88, int(60 + change_pct * 3 + (score - 60) * 0.4))
+                    elif change_pct <= -1.0 or score <= 40:
+                        next_day_dir = "TURUN"
+                        next_day_prob = min(85, int(60 + abs(change_pct) * 3 + (50 - score) * 0.5))
+                    else:
+                        next_day_dir = "NETRAL"
+                        next_day_prob = 52
+
+                    item = seed_map[ticker]
+                    results[ticker] = {
+                        "ticker": ticker,
+                        "name": item.get("name", f"{ticker} Tbk"),
+                        "sector": item.get("sector", "General"),
+                        "board": item.get("board", "Utama"),
+                        "last_price": align_to_tick(last_price),
+                        "open": align_to_tick(day_open),
+                        "high": align_to_tick(day_high),
+                        "low": align_to_tick(day_low),
+                        "previous_close": align_to_tick(prev_close),
+                        "change": change,
+                        "change_pct": change_pct,
+                        "volume": volume,
+                        "value": volume * last_price,
+                        "relative_volume": rel_vol,
+                        "rsi_14": rsi_est,
+                        "signal": signal,
+                        "scalping_score": score,
+                        "next_day_direction": next_day_dir,
+                        "next_day_probability": next_day_prob,
+                        "status": item.get("status", "ACTIVE"),
+                        "data_source": "yahoo_realtime",
+                        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S")
+                    }
+                except Exception:
+                    continue
+        except Exception:
+            continue
+
+    return results
+
+
 @app.get("/api/real-screener")
 def get_real_market_screener(
     sector: Optional[str] = Query(None, description="Filter sector"),
@@ -694,32 +805,39 @@ def get_real_market_screener(
     limit: Optional[int] = Query(800, ge=10, le=1000),
     force_refresh: bool = False
 ):
-    """Scan real IDX stocks from the entire 742 universe using live Yahoo Finance (.JK) and full master data."""
+    """Scan real IDX stocks from the entire 742 universe using live Yahoo Finance (.JK) batch time-series and full master data."""
     global _REAL_SCREENER_CACHE, _REAL_SCREENER_TIMESTAMP, _LIVE_QUOTES_CACHE
     now = time.time()
 
     # Rebuild full universe if expired or empty
     if force_refresh or not _REAL_SCREENER_CACHE or (now - _REAL_SCREENER_TIMESTAMP > 180.0):
-        # 1. Fetch top liquid stocks in background threadpool to enrich cache
-        top_seeds = [s for s in IDX_MASTER_SEED if s.get("status") in ["ACTIVE", "NEWLY_LISTED"]][:40]
+        # 1. Batch-fetch real 1-month time-series & latest quotes for top 240 active stocks
+        active_seeds = [s for s in IDX_MASTER_SEED if s.get("status") in ["ACTIVE", "NEWLY_LISTED"]][:240]
         try:
-            with ThreadPoolExecutor(max_workers=10) as executor:
-                fetched = list(filter(None, executor.map(_fetch_single_real_quote, top_seeds)))
-                for q in fetched:
-                    _LIVE_QUOTES_CACHE[q["ticker"]] = q
+            batch_quotes = _batch_fetch_real_quotes_timeseries(active_seeds)
+            for tk, q in batch_quotes.items():
+                _LIVE_QUOTES_CACHE[tk] = q
         except Exception:
             pass
 
-        # 2. Build full universe covering all 742 emiten
+        # 2. Build full universe covering all 742 emiten, prioritizing real-time Yahoo quotes
         full_universe = []
         for s in IDX_MASTER_SEED:
             ticker = s["ticker"]
             if ticker in _LIVE_QUOTES_CACHE:
-                full_universe.append(_LIVE_QUOTES_CACHE[ticker])
+                q_item = dict(_LIVE_QUOTES_CACHE[ticker])
+                q_item.setdefault("data_source", "yahoo_realtime")
+                full_universe.append(q_item)
             else:
-                full_universe.append(_synthesize_emiten_quote(s))
+                syn = _synthesize_emiten_quote(s)
+                syn["data_source"] = "master_fallback"
+                full_universe.append(syn)
 
-        full_universe.sort(key=lambda x: x["scalping_score"], reverse=True)
+        # Sort real-time Yahoo Finance quotes first, then by scalping_score
+        full_universe.sort(
+            key=lambda x: (1 if x.get("data_source") == "yahoo_realtime" else 0, x["scalping_score"]),
+            reverse=True
+        )
         _REAL_SCREENER_CACHE = full_universe
         _REAL_SCREENER_TIMESTAMP = now
 
@@ -834,21 +952,36 @@ def get_real_stock_history(
             ema50_vals.append(float(ema50.iloc[i]) if not pd.isna(ema50.iloc[i]) else cl)
 
         fi = getattr(t, "fast_info", None)
-        last_price = float(fi["lastPrice"]) if fi and "lastPrice" in fi else (prices[-1] if prices else 0)
-        prev_close = float(fi["previousClose"]) if fi and "previousClose" in fi else last_price
+        last_price = float(fi["lastPrice"]) if fi and "lastPrice" in fi and fi["lastPrice"] else (prices[-1] if prices else 0)
+        prev_close = float(fi["previousClose"]) if fi and "previousClose" in fi and fi["previousClose"] else (prices[-2] if len(prices) >= 2 else last_price)
+        last_price = align_to_tick(round(last_price, 0))
+        prev_close = align_to_tick(round(prev_close, 0))
+        if prices:
+            prices[-1] = last_price
+            candles[-1]["close"] = last_price
+        change = round(last_price - prev_close, 2)
         change_pct = round(((last_price - prev_close) / prev_close) * 100, 2) if prev_close else 0.0
+        avg_vol = float(df["Volume"].iloc[:-1].mean()) if len(df) > 2 else float(candles[-1]["volume"] or 1)
+        latest_vol = int(candles[-1]["volume"]) if candles else 0
+        rel_vol = round(max(0.1, min(5.0, (latest_vol / avg_vol) if avg_vol > 0 else 1.0)), 2)
+        vwap_val = round(float((df["Close"] * df["Volume"]).sum() / max(1.0, df["Volume"].sum())), 0)
 
         return {
             "ticker": clean_ticker,
             "timeframe": timeframe,
             "last_price": last_price,
+            "previous_close": prev_close,
+            "change": change,
             "change_pct": change_pct,
+            "relative_volume": rel_vol,
+            "vwap": align_to_tick(vwap_val) if vwap_val > 0 else last_price,
             "candles": candles,
             "labels": labels,
             "prices": prices,
             "ema20": ema20_vals,
             "ema50": ema50_vals,
-            "rsi_14": float(rsi.iloc[-1]) if not rsi.empty else 50.0,
+            "rsi_14": round(float(rsi.iloc[-1]), 1) if not rsi.empty and not pd.isna(rsi.iloc[-1]) else 50.0,
+            "data_source": "yahoo_realtime",
             "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S")
         }
     except Exception:
