@@ -330,73 +330,170 @@ def _synthesize_emiten_quote(item: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def _build_quote_payload(
+    ticker: str,
+    item: Dict[str, Any],
+    last_price: float,
+    prev_close: float,
+    day_open: float,
+    day_high: float,
+    day_low: float,
+    volume: int,
+    data_source: str,
+    bid: Optional[float] = None,
+    ask: Optional[float] = None,
+    rel_vol: Optional[float] = None,
+    rsi_est: Optional[float] = None,
+) -> Dict[str, Any]:
+    change = round(last_price - prev_close, 2)
+    change_pct = round((change / prev_close) * 100, 2) if prev_close else 0.0
+    rel_vol_val = rel_vol if rel_vol is not None else round(max(0.1, min(5.0, (volume / 12_000_000) if volume > 0 else 1.0)), 2)
+    rsi_val = rsi_est if rsi_est is not None else round(min(88.0, max(22.0, 50.0 + (change_pct * 3.2))), 1)
+
+    if change_pct >= 1.5 and rel_vol_val >= 1.1:
+        signal = "BUY"
+        score = min(96, int(72 + change_pct * 3 + rel_vol_val * 4))
+    elif change_pct <= -1.8:
+        signal = "SELL"
+        score = max(20, int(42 + change_pct * 4))
+    elif change_pct > 0:
+        signal = "BUY" if rel_vol_val >= 1.3 else "HOLD"
+        score = min(90, int(58 + change_pct * 2 + rel_vol_val * 3))
+    else:
+        signal = "HOLD"
+        score = max(35, int(48 + change_pct * 2))
+
+    if change_pct >= 0.8 or (score >= 65 and rel_vol_val >= 1.05):
+        next_day_dir = "NAIK"
+        next_day_prob = min(88, int(60 + change_pct * 3 + (score - 60) * 0.4))
+    elif change_pct <= -1.0 or score <= 40:
+        next_day_dir = "TURUN"
+        next_day_prob = min(85, int(60 + abs(change_pct) * 3 + (50 - score) * 0.5))
+    else:
+        next_day_dir = "NETRAL"
+        next_day_prob = 52
+
+    aligned_last = align_to_tick(last_price)
+    orderbook_available = bool(bid and ask and bid > 0 and ask > 0)
+    spread_ticks = None
+    if orderbook_available:
+        tick = get_tick_size(aligned_last)
+        spread_ticks = max(1, round((ask - bid) / tick)) if tick > 0 else 1
+
+    return {
+        "ticker": ticker,
+        "name": item.get("name", f"{ticker} Tbk"),
+        "sector": item.get("sector", "General"),
+        "board": item.get("board", "Utama"),
+        "last_price": aligned_last,
+        "open": align_to_tick(day_open) if day_open > 0 else aligned_last,
+        "high": align_to_tick(day_high) if day_high > 0 else aligned_last,
+        "low": align_to_tick(day_low) if day_low > 0 else aligned_last,
+        "previous_close": align_to_tick(prev_close) if prev_close > 0 else aligned_last,
+        "change": change,
+        "change_pct": change_pct,
+        "volume": volume,
+        "value": volume * aligned_last,
+        "bid": align_to_tick(bid) if orderbook_available else None,
+        "ask": align_to_tick(ask) if orderbook_available else None,
+        "spread_ticks": spread_ticks,
+        "orderbook_available": orderbook_available,
+        "relative_volume": rel_vol_val,
+        "rsi_14": rsi_val,
+        "signal": signal,
+        "scalping_score": score,
+        "next_day_direction": next_day_dir,
+        "next_day_probability": next_day_prob,
+        "status": item.get("status", "ACTIVE"),
+        "data_source": data_source,
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"),
+    }
+
+
 def _fetch_single_real_quote(item: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """Fetch real-time quote using priority: 1) Invezgo, 2) Api.co.id, 3) Yahoo Finance."""
     ticker = item["ticker"]
+
+    # 1. Invezgo API (if API key configured)
+    if settings.INVEZGO_API_KEY:
+        try:
+            from src.data_collection.invezgo_provider import InvezgoProvider
+            inv = InvezgoProvider()
+            q = inv.get_live_quote(ticker)
+            if q and q.get("last_price") or (q and q.get("close")):
+                lp = float(q.get("last_price") or q.get("close"))
+                pc = float(q.get("previous_close") or lp)
+                ob = inv.get_order_book(ticker)
+                top_bid = float(ob["bids"][0]["price"]) if ob.get("bids") else None
+                top_ask = float(ob["asks"][0]["price"]) if ob.get("asks") else None
+                payload = _build_quote_payload(
+                    ticker, item, lp, pc,
+                    float(q.get("open") or pc), float(q.get("high") or lp), float(q.get("low") or lp),
+                    int(q.get("volume") or 0), "invezgo", bid=top_bid, ask=top_ask
+                )
+                _LIVE_QUOTES_CACHE[ticker] = payload
+                return payload
+        except Exception:
+            pass
+
+    # 2. Api.co.id (if API key configured)
+    if settings.APICOID_API_KEY:
+        try:
+            from src.data_collection.apicoid_provider import ApiCoIdProvider
+            ac = ApiCoIdProvider()
+            q = ac.get_live_quote(ticker)
+            if q and (q.get("last_price") or q.get("close")):
+                lp = float(q.get("last_price") or q.get("close"))
+                pc = float(q.get("previous_close") or lp)
+                ob = ac.get_order_book(ticker)
+                top_bid = float(ob["bids"][0]["price"]) if ob.get("bids") else None
+                top_ask = float(ob["asks"][0]["price"]) if ob.get("asks") else None
+                payload = _build_quote_payload(
+                    ticker, item, lp, pc,
+                    float(q.get("open") or pc), float(q.get("high") or lp), float(q.get("low") or lp),
+                    int(q.get("volume") or 0), "apicoid", bid=top_bid, ask=top_ask
+                )
+                _LIVE_QUOTES_CACHE[ticker] = payload
+                return payload
+        except Exception:
+            pass
+
+    # 3. Yahoo Finance (.JK / ^JKSE)
     try:
-        t = yf.Ticker(f"{ticker}.JK")
-        fi = t.fast_info
-        last_price = float(fi["lastPrice"])
-        prev_close = float(fi["previousClose"]) if fi.get("previousClose") else last_price
-        volume = int(fi.get("lastVolume", 0))
-        day_open = float(fi.get("open", prev_close))
-        day_high = float(fi.get("dayHigh", max(last_price, prev_close)))
-        day_low = float(fi.get("dayLow", min(last_price, prev_close)))
+        yf_sym = "^JKSE" if ticker in ["^JKSE", "IHSG"] else f"{ticker}.JK"
+        t = yf.Ticker(yf_sym)
+        fi = getattr(t, "fast_info", None)
+        last_price = float(fi["lastPrice"]) if fi and fi.get("lastPrice") else None
+        prev_close = float(fi["previousClose"]) if fi and fi.get("previousClose") else None
+        volume = int(fi.get("lastVolume", 0) or 0) if fi else 0
+        day_open = float(fi.get("open", 0) or 0) if fi else 0.0
+        day_high = float(fi.get("dayHigh", 0) or 0) if fi else 0.0
+        day_low = float(fi.get("dayLow", 0) or 0) if fi else 0.0
 
-        change = round(last_price - prev_close, 2)
-        change_pct = round((change / prev_close) * 100, 2) if prev_close else 0.0
+        if not last_price or last_price <= 0:
+            hist = t.history(period="5d", interval="1d")
+            if hist is not None and not hist.empty:
+                last_row = hist.iloc[-1]
+                last_price = float(last_row["Close"])
+                prev_close = float(hist.iloc[-2]["Close"]) if len(hist) >= 2 else last_price
+                day_open = float(last_row.get("Open", prev_close))
+                day_high = float(last_row.get("High", last_price))
+                day_low = float(last_row.get("Low", last_price))
+                volume = int(last_row.get("Volume", 0) or 0)
 
-        rel_vol = round(max(0.65, min(3.8, (volume / 12_000_000) if volume > 0 else 1.0)), 2)
-        rsi_est = round(min(88.0, max(22.0, 50.0 + (change_pct * 3.2))), 1)
+        if not last_price or last_price <= 0:
+            return None
 
-        if change_pct >= 1.5 and rel_vol >= 1.1:
-            signal = "BUY"
-            score = min(96, int(72 + change_pct * 3 + rel_vol * 4))
-        elif change_pct <= -1.8:
-            signal = "SELL"
-            score = max(20, int(42 + change_pct * 4))
-        elif change_pct > 0:
-            signal = "BUY" if rel_vol >= 1.3 else "HOLD"
-            score = int(58 + change_pct * 2 + rel_vol * 3)
-        else:
-            signal = "HOLD"
-            score = max(35, int(48 + change_pct * 2))
+        if not prev_close or prev_close <= 0:
+            prev_close = last_price
 
-        # Next-Day (T+1) Prediction
-        if change_pct >= 0.8 or (score >= 65 and rel_vol >= 1.05):
-            next_day_dir = "NAIK"
-            next_day_prob = min(88, int(60 + change_pct * 3 + (score - 60) * 0.4))
-        elif change_pct <= -1.0 or score <= 40:
-            next_day_dir = "TURUN"
-            next_day_prob = min(85, int(60 + abs(change_pct) * 3 + (50 - score) * 0.5))
-        else:
-            next_day_dir = "NETRAL"
-            next_day_prob = 52
-
-        quote_data = {
-            "ticker": ticker,
-            "name": item.get("name", f"{ticker} Tbk"),
-            "sector": item.get("sector", "General"),
-            "board": item.get("board", "Utama"),
-            "last_price": align_to_tick(last_price),
-            "open": day_open,
-            "high": day_high,
-            "low": day_low,
-            "previous_close": prev_close,
-            "change": change,
-            "change_pct": change_pct,
-            "volume": volume,
-            "value": volume * last_price,
-            "relative_volume": rel_vol,
-            "rsi_14": rsi_est,
-            "signal": signal,
-            "scalping_score": score,
-            "next_day_direction": next_day_dir,
-            "next_day_probability": next_day_prob,
-            "status": item.get("status", "ACTIVE"),
-            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S")
-        }
-        _LIVE_QUOTES_CACHE[ticker] = quote_data
-        return quote_data
+        payload = _build_quote_payload(
+            ticker, item, last_price, prev_close,
+            day_open or prev_close, day_high or last_price, day_low or last_price,
+            volume, "yahoo_realtime", bid=None, ask=None
+        )
+        _LIVE_QUOTES_CACHE[ticker] = payload
+        return payload
     except Exception:
         return None
 
@@ -407,38 +504,54 @@ def _fetch_single_real_quote(item: Dict[str, Any]) -> Optional[Dict[str, Any]]:
 
 @app.get("/api/market/overview")
 def get_market_overview(provider_name: Optional[str] = None, db: Session = Depends(get_db)):
-    """Mengembalikan ringkasan pasar: IHSG real-time (^JKSE), top gainers, top losers, total volume."""
+    """Mengembalikan ringkasan pasar real-time: IHSG (^JKSE), top gainers, top losers, total volume. Tanpa data DEMO palsu."""
     global _OVERVIEW_CACHE, _OVERVIEW_TIMESTAMP, _LIVE_QUOTES_CACHE
     now = time.time()
     if _OVERVIEW_CACHE and (now - _OVERVIEW_TIMESTAMP < 90.0):
         return _OVERVIEW_CACHE
 
-    quotes = []
     # 1. Fetch actual real-time IHSG index from Yahoo Finance (^JKSE)
-    ihsg_price = 5225.22
-    ihsg_change = -16.37
-    ihsg_change_pct = -0.31
+    ihsg_price = None
+    ihsg_change = None
+    ihsg_change_pct = None
+    ihsg_status = "UNAVAILABLE"
     try:
         t_ihsg = yf.Ticker("^JKSE")
         fi_ihsg = getattr(t_ihsg, "fast_info", None)
-        if fi_ihsg and "lastPrice" in fi_ihsg:
+        if fi_ihsg and fi_ihsg.get("lastPrice"):
             ihsg_price = round(float(fi_ihsg["lastPrice"]), 2)
-            prev_ihsg = float(fi_ihsg.get("previousClose", ihsg_price))
+            prev_ihsg = float(fi_ihsg.get("previousClose") or ihsg_price)
             ihsg_change = round(ihsg_price - prev_ihsg, 2)
             ihsg_change_pct = round((ihsg_change / prev_ihsg) * 100, 2) if prev_ihsg else 0.0
+            ihsg_status = "OPEN"
+        else:
+            hist_ihsg = t_ihsg.history(period="5d", interval="1d")
+            if hist_ihsg is not None and not hist_ihsg.empty:
+                ihsg_price = round(float(hist_ihsg["Close"].iloc[-1]), 2)
+                prev_ihsg = float(hist_ihsg["Close"].iloc[-2]) if len(hist_ihsg) >= 2 else ihsg_price
+                ihsg_change = round(ihsg_price - prev_ihsg, 2)
+                ihsg_change_pct = round((ihsg_change / prev_ihsg) * 100, 2) if prev_ihsg else 0.0
+                ihsg_status = "OPEN"
     except Exception:
         pass
 
-    # Fetch top liquid IDX tickers
-    top_seeds = [s for s in IDX_MASTER_SEED if s.get("status") == "ACTIVE"][:35]
+    # 2. Fetch top liquid IDX tickers from real providers
+    top_seeds = [s for s in IDX_MASTER_SEED if s.get("status") == "ACTIVE"][:40]
+    quotes = []
     try:
-        with ThreadPoolExecutor(max_workers=10) as executor:
-            quotes = list(filter(None, executor.map(_fetch_single_real_quote, top_seeds)))
+        batch = _batch_fetch_real_quotes_timeseries(top_seeds)
+        quotes = list(batch.values())
+        for tk, q in batch.items():
+            _LIVE_QUOTES_CACHE[tk] = q
     except Exception:
         quotes = []
 
     if not quotes:
-        quotes = [_synthesize_emiten_quote(s) for s in top_seeds]
+        try:
+            with ThreadPoolExecutor(max_workers=10) as executor:
+                quotes = list(filter(None, executor.map(_fetch_single_real_quote, top_seeds[:20])))
+        except Exception:
+            quotes = []
 
     total_val = sum(q.get("value", 0.0) for q in quotes)
     gainers = sorted([q for q in quotes if q.get("change_pct", 0) > 0], key=lambda x: x.get("change_pct", 0), reverse=True)[:10]
@@ -449,6 +562,12 @@ def get_market_overview(provider_name: Optional[str] = None, db: Session = Depen
     if not losers and quotes:
         losers = sorted(quotes, key=lambda x: x.get("change_pct", 0))[:10]
 
+    ai_preview = (
+        f"IHSG tercatat di level {ihsg_price:,.2f} ({ihsg_change_pct:+}%) berdasarkan data real-time bursa."
+        if ihsg_price is not None
+        else "Data IHSG real-time sementara tidak tersedia dari provider."
+    )
+
     overview_data = {
         "ihsg": {
             "name": "IHSG (Jakarta Composite Index)",
@@ -456,7 +575,8 @@ def get_market_overview(provider_name: Optional[str] = None, db: Session = Depen
             "price": ihsg_price,
             "change": ihsg_change,
             "change_pct": ihsg_change_pct,
-            "status": "OPEN"
+            "status": ihsg_status,
+            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S")
         },
         "market_stats": {
             "total_turnover_idr": total_val,
@@ -467,11 +587,13 @@ def get_market_overview(provider_name: Optional[str] = None, db: Session = Depen
         },
         "top_gainers": gainers,
         "top_losers": losers,
-        "ai_insight_preview": f"IHSG tercatat di level {ihsg_price} ({ihsg_change_pct:+}%) dengan rotasi volume akumulasi di sektor perbankan dan energi.",
+        "data_available": bool(ihsg_price is not None or quotes),
+        "ai_insight_preview": ai_preview,
         "updated_at": time.strftime("%Y-%m-%dT%H:%M:%S")
     }
-    _OVERVIEW_CACHE = overview_data
-    _OVERVIEW_TIMESTAMP = now
+    if overview_data["data_available"]:
+        _OVERVIEW_CACHE = overview_data
+        _OVERVIEW_TIMESTAMP = now
     return overview_data
 
 
@@ -831,26 +953,19 @@ def get_real_market_screener(
         except Exception:
             pass
 
-        # 2. Build full universe covering all 742 emiten, prioritizing real-time Yahoo quotes
+        # 2. Build universe ONLY from real provider quotes (never mix synthetic prices into real screener)
         full_universe = []
         for s in IDX_MASTER_SEED:
             ticker = s["ticker"]
             if ticker in _LIVE_QUOTES_CACHE:
                 q_item = dict(_LIVE_QUOTES_CACHE[ticker])
-                q_item.setdefault("data_source", "yahoo_realtime")
-                full_universe.append(q_item)
-            else:
-                syn = _synthesize_emiten_quote(s)
-                syn["data_source"] = "master_fallback"
-                full_universe.append(syn)
+                if q_item.get("data_source") in ("invezgo", "apicoid", "yahoo_realtime"):
+                    full_universe.append(q_item)
 
-        # Sort real-time Yahoo Finance quotes first, then by scalping_score
-        full_universe.sort(
-            key=lambda x: (1 if x.get("data_source") == "yahoo_realtime" else 0, x["scalping_score"]),
-            reverse=True
-        )
-        _REAL_SCREENER_CACHE = full_universe
-        _REAL_SCREENER_TIMESTAMP = now
+        full_universe.sort(key=lambda x: x["scalping_score"], reverse=True)
+        if full_universe:
+            _REAL_SCREENER_CACHE = full_universe
+            _REAL_SCREENER_TIMESTAMP = now
 
     results = _REAL_SCREENER_CACHE
 
@@ -898,12 +1013,14 @@ def get_real_stock_history(
 ):
     """Fetch real historical OHLCV time-series candles with technical indicators for TradingView/Chart.js."""
     clean_ticker = ticker.upper().replace(".JK", "").strip()
-    if clean_ticker in ["IHSG", "^JKSE", "COMPOSITE"]:
+    is_ihsg = clean_ticker in ["IHSG", "^JKSE", "COMPOSITE"]
+    if is_ihsg:
         clean_ticker = "IHSG"
         formatted = "^JKSE"
     else:
         formatted = f"{clean_ticker}.JK"
 
+    tf_key = timeframe.lower().strip()
     tf_map = {
         "1m": ("1m", "5d"),
         "5m": ("5m", "5d"),
@@ -911,146 +1028,160 @@ def get_real_stock_history(
         "1h": ("60m", "1mo"),
         "1d": ("1d", "6mo")
     }
-    interval, period = tf_map.get(timeframe.lower(), ("5m", "5d"))
+    interval, period = tf_map.get(tf_key, ("5m", "5d"))
 
-    try:
-        t = yf.Ticker(formatted)
-        hist = t.history(interval=interval, period=period)
-        if hist.empty:
-            raise ValueError(f"Empty history from Yahoo for {clean_ticker}")
+    # Per-ticker & per-timeframe cache (60s TTL, never caches synthetic data)
+    global _HISTORY_CACHE
+    if "_HISTORY_CACHE" not in globals():
+        _HISTORY_CACHE = {}
+    cache_key = (clean_ticker, tf_key, limit)
+    now_ts = time.time()
+    cached = _HISTORY_CACHE.get(cache_key)
+    if cached and (now_ts - cached.get("_cached_at", 0) < 60.0):
+        return cached["payload"]
 
-        df = hist.tail(limit).copy()
-        df = df.reset_index()
+    df = pd.DataFrame()
+    data_source = "yahoo_realtime"
+    t = None
 
-        date_col = "Datetime" if "Datetime" in df.columns else ("Date" if "Date" in df.columns else df.columns[0])
+    # 1. Invezgo API (if API key configured and not IHSG)
+    if not is_ihsg and settings.INVEZGO_API_KEY:
+        try:
+            from src.data_collection.invezgo_provider import InvezgoProvider
+            inv = InvezgoProvider()
+            inv_df = inv.get_daily_history(clean_ticker) if tf_key == "1d" else inv.get_intraday_data(clean_ticker, timeframe=tf_key, limit=limit)
+            if inv_df is not None and not inv_df.empty:
+                df = inv_df.tail(limit).copy()
+                data_source = "invezgo"
+        except Exception:
+            df = pd.DataFrame()
 
-        close_series = df["Close"]
-        ema20 = TechnicalAnalysisEngine.calculate_ema(close_series, span=20)
-        ema50 = TechnicalAnalysisEngine.calculate_ema(close_series, span=50)
-        rsi = TechnicalAnalysisEngine.calculate_rsi(close_series, period=14)
+    # 2. Api.co.id (if API key configured and not IHSG)
+    if df.empty and not is_ihsg and settings.APICOID_API_KEY:
+        try:
+            from src.data_collection.apicoid_provider import ApiCoIdProvider
+            ac = ApiCoIdProvider()
+            ac_df = ac.get_daily_history(clean_ticker) if tf_key == "1d" else ac.get_intraday_data(clean_ticker, timeframe=tf_key, limit=limit)
+            if ac_df is not None and not ac_df.empty:
+                df = ac_df.tail(limit).copy()
+                data_source = "apicoid"
+        except Exception:
+            df = pd.DataFrame()
 
-        candles = []
-        labels = []
-        prices = []
-        ema20_vals = []
-        ema50_vals = []
+    # 3. Yahoo Finance (.JK / ^JKSE)
+    if df.empty:
+        try:
+            t = yf.Ticker(formatted)
+            hist = t.history(interval=interval, period=period)
+            if hist is not None and not hist.empty:
+                df = hist.tail(limit).copy().reset_index()
+                data_source = "yahoo_realtime"
+        except Exception:
+            df = pd.DataFrame()
 
-        for i, row in df.iterrows():
-            ts_str = str(row[date_col])
-            if " " in ts_str:
-                time_label = ts_str.split(" ")[1][:5]
-            else:
-                time_label = ts_str[:10]
+    if df.empty:
+        raise HTTPException(
+            status_code=503,
+            detail=f"Data historis real-time untuk {clean_ticker} ({tf_key}) tidak tersedia dari provider saat ini."
+        )
 
-            op = round(float(row["Open"]), 0)
-            hi = round(float(row["High"]), 0)
-            lo = round(float(row["Low"]), 0)
-            cl = round(float(row["Close"]), 0)
-            vol = int(row["Volume"])
+    # Normalize column names safely
+    col_map = {c: c.lower() for c in df.columns}
+    df_norm = df.rename(columns=col_map)
+    date_col = "datetime" if "datetime" in df_norm.columns else ("date" if "date" in df_norm.columns else ("timestamp" if "timestamp" in df_norm.columns else df_norm.columns[0]))
 
-            candles.append({
-                "time": ts_str,
-                "label": time_label,
-                "open": op,
-                "high": hi,
-                "low": lo,
-                "close": cl,
-                "volume": vol
-            })
-            labels.append(time_label)
-            prices.append(cl)
-            ema20_vals.append(float(ema20.iloc[i]) if not pd.isna(ema20.iloc[i]) else cl)
-            ema50_vals.append(float(ema50.iloc[i]) if not pd.isna(ema50.iloc[i]) else cl)
+    df_norm = df_norm.dropna(subset=["close"]).reset_index(drop=True)
+    if df_norm.empty:
+        raise HTTPException(
+            status_code=503,
+            detail=f"Data candle untuk {clean_ticker} ({tf_key}) kosong dari provider."
+        )
 
-        fi = getattr(t, "fast_info", None)
-        last_price = float(fi["lastPrice"]) if fi and "lastPrice" in fi and fi["lastPrice"] else (prices[-1] if prices else 0)
-        prev_close = float(fi["previousClose"]) if fi and "previousClose" in fi and fi["previousClose"] else (prices[-2] if len(prices) >= 2 else last_price)
-        last_price = align_to_tick(round(last_price, 0))
-        prev_close = align_to_tick(round(prev_close, 0))
-        if prices:
-            prices[-1] = last_price
-            candles[-1]["close"] = last_price
-        change = round(last_price - prev_close, 2)
-        change_pct = round(((last_price - prev_close) / prev_close) * 100, 2) if prev_close else 0.0
-        avg_vol = float(df["Volume"].iloc[:-1].mean()) if len(df) > 2 else float(candles[-1]["volume"] or 1)
-        latest_vol = int(candles[-1]["volume"]) if candles else 0
-        rel_vol = round(max(0.1, min(5.0, (latest_vol / avg_vol) if avg_vol > 0 else 1.0)), 2)
-        vwap_val = round(float((df["Close"] * df["Volume"]).sum() / max(1.0, df["Volume"].sum())), 0)
+    close_series = df_norm["close"].astype(float)
+    ema20 = TechnicalAnalysisEngine.calculate_ema(close_series, span=20)
+    ema50 = TechnicalAnalysisEngine.calculate_ema(close_series, span=50)
+    rsi = TechnicalAnalysisEngine.calculate_rsi(close_series, period=14)
 
-        return {
-            "ticker": clean_ticker,
-            "timeframe": timeframe,
-            "last_price": last_price,
-            "previous_close": prev_close,
-            "change": change,
-            "change_pct": change_pct,
-            "relative_volume": rel_vol,
-            "vwap": align_to_tick(vwap_val) if vwap_val > 0 else last_price,
-            "candles": candles,
-            "labels": labels,
-            "prices": prices,
-            "ema20": ema20_vals,
-            "ema50": ema50_vals,
-            "rsi_14": round(float(rsi.iloc[-1]), 1) if not rsi.empty and not pd.isna(rsi.iloc[-1]) else 50.0,
-            "data_source": "yahoo_realtime",
-            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S")
-        }
-    except Exception:
-        # Graceful fallback: synthesize time-series candles based on master stock seed
-        match = next((s for s in IDX_MASTER_SEED if s["ticker"] == clean_ticker), None)
-        quote = _LIVE_QUOTES_CACHE.get(clean_ticker) or _synthesize_emiten_quote(match or {"ticker": clean_ticker, "sector": "General"})
-        base_price = quote["last_price"]
-        
-        candles = []
-        labels = []
-        prices = []
-        curr = base_price * 0.98
-        now_ts = int(time.time())
-        step_sec = 300 if timeframe == "5m" else (60 if timeframe == "1m" else 900)
+    candles = []
+    labels = []
+    prices = []
+    ema20_vals = []
+    ema50_vals = []
 
-        for i in range(limit):
-            t_candle = now_ts - (limit - i) * step_sec
-            time_label = time.strftime("%H:%M", time.localtime(t_candle))
-            seed_step = sum(ord(c) for c in clean_ticker) + i
-            jitter = ((seed_step % 11) - 5) * (base_price * 0.003)
-            op = align_to_tick(curr)
-            cl = align_to_tick(max(10, curr + jitter))
-            hi = max(op, cl) + align_to_tick(base_price * 0.004)
-            lo = min(op, cl) - align_to_tick(base_price * 0.004)
-            vol = int(50000 + (seed_step % 20) * 10000)
-            candles.append({
-                "time": time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime(t_candle)),
-                "label": time_label,
-                "open": op,
-                "high": hi,
-                "low": lo,
-                "close": cl,
-                "volume": vol
-            })
-            labels.append(time_label)
-            prices.append(cl)
-            curr = cl
+    for i, row in df_norm.iterrows():
+        ts_str = str(row[date_col])
+        if " " in ts_str:
+            time_label = ts_str.split(" ")[1][:5]
+        elif "T" in ts_str:
+            time_label = ts_str.split("T")[1][:5]
+        else:
+            time_label = ts_str[:10]
 
-        close_series = pd.Series(prices)
-        ema20 = TechnicalAnalysisEngine.calculate_ema(close_series, span=20)
-        ema50 = TechnicalAnalysisEngine.calculate_ema(close_series, span=50)
-        rsi = TechnicalAnalysisEngine.calculate_rsi(close_series, period=14)
-        ema20_vals = [float(x) if not pd.isna(x) else p for x, p in zip(ema20, prices)]
-        ema50_vals = [float(x) if not pd.isna(x) else p for x, p in zip(ema50, prices)]
+        op = round(float(row["open"]), 2 if is_ihsg else 0)
+        hi = round(float(row["high"]), 2 if is_ihsg else 0)
+        lo = round(float(row["low"]), 2 if is_ihsg else 0)
+        cl = round(float(row["close"]), 2 if is_ihsg else 0)
+        vol = int(row.get("volume", 0) or 0)
 
-        return {
-            "ticker": clean_ticker,
-            "timeframe": timeframe,
-            "last_price": quote["last_price"],
-            "change_pct": quote["change_pct"],
-            "candles": candles,
-            "labels": labels,
-            "prices": prices,
-            "ema20": ema20_vals,
-            "ema50": ema50_vals,
-            "rsi_14": float(rsi.iloc[-1]) if not rsi.empty else 50.0,
-            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S")
-        }
+        candles.append({
+            "time": ts_str,
+            "label": time_label,
+            "open": op,
+            "high": hi,
+            "low": lo,
+            "close": cl,
+            "volume": vol
+        })
+        labels.append(time_label)
+        prices.append(cl)
+        ema20_vals.append(round(float(ema20.iloc[i]), 2) if not pd.isna(ema20.iloc[i]) else cl)
+        ema50_vals.append(round(float(ema50.iloc[i]), 2) if not pd.isna(ema50.iloc[i]) else cl)
+
+    fi = getattr(t, "fast_info", None) if t is not None else None
+    raw_last = float(fi["lastPrice"]) if fi and fi.get("lastPrice") else (prices[-1] if prices else 0.0)
+    raw_prev = float(fi["previousClose"]) if fi and fi.get("previousClose") else (prices[-2] if len(prices) >= 2 else raw_last)
+
+    if is_ihsg:
+        last_price = round(raw_last, 2)
+        prev_close = round(raw_prev, 2)
+    else:
+        last_price = align_to_tick(round(raw_last, 0))
+        prev_close = align_to_tick(round(raw_prev, 0))
+
+    if prices:
+        prices[-1] = last_price
+        candles[-1]["close"] = last_price
+
+    change = round(last_price - prev_close, 2)
+    change_pct = round(((last_price - prev_close) / prev_close) * 100, 2) if prev_close else 0.0
+    avg_vol = float(df_norm["volume"].iloc[:-1].mean()) if len(df_norm) > 2 else float(candles[-1]["volume"] or 1)
+    latest_vol = int(candles[-1]["volume"]) if candles else 0
+    rel_vol = round(max(0.1, min(5.0, (latest_vol / avg_vol) if avg_vol > 0 else 1.0)), 2)
+    vwap_raw = float((df_norm["close"].astype(float) * df_norm["volume"].astype(float)).sum() / max(1.0, df_norm["volume"].astype(float).sum()))
+    vwap_val = round(vwap_raw, 2) if is_ihsg else align_to_tick(round(vwap_raw, 0))
+
+    payload = {
+        "ticker": clean_ticker,
+        "timeframe": tf_key,
+        "last_price": last_price,
+        "previous_close": prev_close,
+        "change": change,
+        "change_pct": change_pct,
+        "volume": latest_vol,
+        "value": latest_vol * last_price,
+        "relative_volume": rel_vol,
+        "vwap": vwap_val if vwap_val > 0 else last_price,
+        "candles": candles,
+        "labels": labels,
+        "prices": prices,
+        "ema20": ema20_vals,
+        "ema50": ema50_vals,
+        "rsi_14": round(float(rsi.iloc[-1]), 1) if not rsi.empty and not pd.isna(rsi.iloc[-1]) else None,
+        "data_source": data_source,
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S")
+    }
+    _HISTORY_CACHE[cache_key] = {"_cached_at": now_ts, "payload": payload}
+    return payload
 
 
 # Mount modern Fintech SaaS Web Frontend

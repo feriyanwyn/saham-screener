@@ -1831,25 +1831,43 @@
         console.warn("Real history fetch error:", e);
       }
 
-      // Catalog lookup fallback if offline
+      // Catalog metadata lookup (name & sector only — NEVER invent fake prices)
       const cat = IDX_STOCK_CATALOG.find(s => s.ticker === ticker) || {
         ticker: ticker,
         name: `${ticker} Indonesia Tbk`,
-        price: 2500,
-        sector: "Industrials"
+        sector: "IDX"
       };
 
-      const price = quoteData?.last_price || histData?.last_price || cat.price;
-      const changePct = quoteData?.change_pct !== undefined ? quoteData.change_pct : (histData?.change_pct !== undefined ? histData.change_pct : 0.0);
-      const changeNom = quoteData?.change !== undefined ? quoteData.change : Math.round(price * (changePct / 100));
-
+      const hasRealPrice = Boolean(quoteData?.last_price || histData?.last_price);
       document.getElementById('ana-ticker').innerText = ticker;
       document.getElementById('ana-ticker-badge').innerText = ticker.slice(0, 2);
       document.getElementById('ana-company-name').innerText = `${quoteData?.name || cat.name} • Sektor ${quoteData?.sector || cat.sector} • Papan ${quoteData?.board || 'Utama'}`;
+
+      if (!hasRealPrice) {
+        document.getElementById('ana-price').innerText = "Unavailable";
+        const chgEl = document.getElementById('ana-change');
+        chgEl.innerText = "Data real-time tidak tersedia dari provider";
+        chgEl.className = "text-xs font-semibold font-mono text-lightSecText dark:text-darkSecText";
+        document.getElementById('ana-bid').innerText = "Unavailable";
+        document.getElementById('ana-ask').innerText = "Unavailable";
+        document.getElementById('ana-spread').innerText = "Unavailable";
+        document.getElementById('ana-rsi').innerText = "Unavailable";
+        document.getElementById('ana-relvol').innerText = "Unavailable";
+        document.getElementById('ana-vwap').innerText = "Unavailable";
+        document.getElementById('ana-atr').innerText = "Unavailable";
+        drawAnalysisChart(ticker, null, [], [], [], []);
+        showToast(`Data real-time untuk ${ticker} tidak tersedia saat ini.`, "error");
+        return;
+      }
+
+      const price = quoteData?.last_price || histData?.last_price;
+      const changePct = quoteData?.change_pct !== undefined ? quoteData.change_pct : (histData?.change_pct ?? 0.0);
+      const changeNom = quoteData?.change !== undefined ? quoteData.change : (histData?.change ?? Math.round(price * (changePct / 100)));
+
       document.getElementById('ana-price').innerText = `Rp ${price.toLocaleString('id-ID')}`;
       
       const changeEl = document.getElementById('ana-change');
-      changeEl.innerText = `${changePct >= 0 ? '+' : ''}${changePct.toFixed(2)}% (${changeNom >= 0 ? '+' : ''}${changeNom})`;
+      changeEl.innerText = `${changePct >= 0 ? '+' : ''}${Number(changePct).toFixed(2)}% (${changeNom >= 0 ? '+' : ''}${changeNom})`;
       changeEl.className = `text-xs font-semibold font-mono ${changePct >= 0 ? 'text-buyGreen' : 'text-sellRed'}`;
 
       // BEI Tick Size alignment
@@ -1860,10 +1878,18 @@
       else if (price >= 200) tick = 2;
       else tick = 1;
 
-      const bid = quoteData?.open ? Math.max(1, price - tick) : price - tick;
+      // Order Book: only display Bid/Ask if provider supplies real order book data
+      if (quoteData?.orderbook_available && quoteData?.bid && quoteData?.ask) {
+        document.getElementById('ana-bid').innerText = Number(quoteData.bid).toLocaleString('id-ID');
+        document.getElementById('ana-ask').innerText = Number(quoteData.ask).toLocaleString('id-ID');
+        document.getElementById('ana-spread').innerText = `${quoteData.spread_ticks || 1} tick`;
+      } else {
+        document.getElementById('ana-bid').innerText = "Unavailable";
+        document.getElementById('ana-ask').innerText = "Unavailable";
+        document.getElementById('ana-spread').innerText = "Unavailable";
+      }
+      const bid = Math.max(1, price - tick);
       const ask = price;
-      document.getElementById('ana-bid').innerText = bid.toLocaleString('id-ID');
-      document.getElementById('ana-ask').innerText = ask.toLocaleString('id-ID');
 
       // Update Decision & Signals
       const sig = quoteData?.signal || (changePct >= 1.0 ? "BUY" : (changePct <= -1.5 ? "SELL" : "HOLD"));
@@ -2799,26 +2825,44 @@
     let dashChartInstance = null;
     let anaChartInstance = null;
 
+    function drawUnavailableCanvasMessage(canvas, msg) {
+      const c2d = canvas.getContext('2d');
+      if (!c2d) return;
+      c2d.clearRect(0, 0, canvas.width, canvas.height);
+      c2d.save();
+      c2d.fillStyle = '#94A3B8';
+      c2d.font = '600 13px "Plus Jakarta Sans", sans-serif';
+      c2d.textAlign = 'center';
+      c2d.textBaseline = 'middle';
+      c2d.fillText(msg, canvas.width / 2, canvas.height / 2);
+      c2d.restore();
+    }
+
     async function drawDashboardChart() {
       const ctx = document.getElementById('dashboardCandleChart');
       if (!ctx) return;
       if (dashChartInstance) dashChartInstance.destroy();
 
-      let labels = ['09:00', '09:15', '09:30', '09:45', '10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30'];
-      let prices = [5215, 5220, 5225, 5230, 5228, 5235, 5240, 5238, 5230, 5225, 5225];
-      let ema20 =  [5210, 5215, 5220, 5225, 5226, 5230, 5235, 5236, 5232, 5228, 5226];
+      let labels = [];
+      let prices = [];
+      let ema20 = [];
 
       try {
         const res = await fetch(`${API_BASE}/api/real-history/IHSG?timeframe=15m&limit=16`);
         if (res.ok) {
           const h = await res.json();
-          if (h.labels && h.labels.length > 3) {
+          if (h.labels && h.labels.length > 0 && h.prices && h.prices.length > 0) {
             labels = h.labels;
             prices = h.prices;
-            ema20 = h.ema20;
+            ema20 = h.ema20 || [];
           }
         }
       } catch (e) {}
+
+      if (!labels.length || !prices.length) {
+        drawUnavailableCanvasMessage(ctx, 'Data historis IHSG real-time tidak tersedia');
+        return;
+      }
 
       dashChartInstance = new Chart(ctx, {
         type: 'line',
@@ -2856,27 +2900,19 @@
       });
     }
 
-    function drawAnalysisChart(ticker = "BBCA", basePrice = 5800, customLabels = null, customPrices = null, customEma20 = null, customEma50 = null) {
+    function drawAnalysisChart(ticker = "BBCA", basePrice = null, customLabels = null, customPrices = null, customEma20 = null, customEma50 = null) {
       const ctx = document.getElementById('analysisCandleChart');
       if (!ctx) return;
       if (anaChartInstance) anaChartInstance.destroy();
 
-      let labels = customLabels;
-      let prices = customPrices;
-      let ema20 = customEma20;
-      let ema50 = customEma50;
+      const labels = customLabels;
+      const prices = customPrices;
+      const ema20 = customEma20 || [];
+      const ema50 = customEma50 || [];
 
-      if (!labels || labels.length === 0) {
-        labels = ['09:00', '09:15', '09:30', '09:45', '10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30', '13:30', '13:45', '14:00'];
-        const p = basePrice || 5800;
-        prices = [
-          Math.round(p * 0.985), Math.round(p * 0.988), Math.round(p * 0.99), Math.round(p * 0.994),
-          Math.round(p * 0.992), Math.round(p * 0.996), Math.round(p * 0.998), Math.round(p * 1.002),
-          Math.round(p * 1.000), Math.round(p * 1.004), Math.round(p * 1.002), Math.round(p * 1.006),
-          Math.round(p * 1.008), p
-        ];
-        ema20 = prices.map(v => Math.round(v * 0.997));
-        ema50 = prices.map(v => Math.round(v * 0.993));
+      if (!labels || labels.length === 0 || !prices || prices.length === 0) {
+        drawUnavailableCanvasMessage(ctx, `Data historis real-time ${ticker} tidak tersedia`);
+        return;
       }
 
       anaChartInstance = new Chart(ctx, {
@@ -2928,54 +2964,62 @@
         if (res.ok) {
           const data = await res.json();
           renderDashboard(data);
-          showToast("Data dashboard & IHSG berhasil diperbarui!", 'success');
+          if (data.ihsg && data.ihsg.status !== 'UNAVAILABLE' && data.ihsg.price !== null) {
+            showToast("Data dashboard & IHSG berhasil diperbarui!", 'success');
+          } else {
+            showToast("Sebagian data IHSG tidak tersedia dari provider.", 'info');
+          }
           return;
         }
       } catch(e) {}
       renderDashboard({
-        ihsg: { price: 5225.22, change: -16.37, change_pct: -0.31 },
-        market_stats: { total_turnover_idr: 12450000000000 },
-        top_gainers: [
-          { ticker: "MBMA", last_price: 362, change_pct: 4.62 },
-          { ticker: "UNVR", last_price: 1620, change_pct: 4.18 },
-          { ticker: "MEDC", last_price: 1220, change_pct: 3.85 }
-        ],
-        top_losers: [
-          { ticker: "GOTO", last_price: 54, change_pct: -3.57 },
-          { ticker: "UNVR", last_price: 1850, change_pct: -2.63 }
-        ]
+        ihsg: { price: null, change: null, change_pct: null, status: "UNAVAILABLE" },
+        market_stats: { total_turnover_idr: 0 },
+        top_gainers: [],
+        top_losers: [],
+        ai_insight_preview: "Data pasar real-time tidak tersedia saat ini. Pastikan backend API aktif dan terhubung ke provider."
       });
+      showToast("Gagal terhubung ke backend real-time.", 'error');
     }
 
     function renderDashboard(data) {
       document.getElementById('dash-last-updated').innerText = new Date().toLocaleTimeString('id-ID');
       
-      // 1. Update Real-Time IHSG
-      if (data.ihsg) {
+      // 1. Update Real-Time IHSG (or show Unavailable if missing)
+      const hPrice = document.getElementById('header-ihsg-price');
+      const hChg = document.getElementById('header-ihsg-change');
+      const sPrice = document.getElementById('stat-ihsg-price');
+      const sChg = document.getElementById('stat-ihsg-change');
+
+      if (data.ihsg && data.ihsg.price !== null && data.ihsg.price !== undefined && data.ihsg.status !== 'UNAVAILABLE') {
         const priceNum = Number(data.ihsg.price);
         const ihsgStr = priceNum.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        const chgPct = Number(data.ihsg.change_pct);
-        const chgNom = Number(data.ihsg.change);
+        const chgPct = Number(data.ihsg.change_pct || 0);
+        const chgNom = Number(data.ihsg.change || 0);
         const isUp = chgPct >= 0;
         const colorClass = isUp ? 'text-buyGreen' : 'text-sellRed';
         const sign = isUp ? '+' : '';
 
-        // Header pill
-        const hPrice = document.getElementById('header-ihsg-price');
-        const hChg = document.getElementById('header-ihsg-change');
         if (hPrice) hPrice.innerText = ihsgStr;
         if (hChg) {
           hChg.innerText = `${sign}${chgPct.toFixed(2)}%`;
           hChg.className = `${colorClass} font-bold font-mono`;
         }
-
-        // Dashboard stat card
-        const sPrice = document.getElementById('stat-ihsg-price');
-        const sChg = document.getElementById('stat-ihsg-change');
         if (sPrice) sPrice.innerText = ihsgStr;
         if (sChg) {
           sChg.className = `text-xs font-semibold ${colorClass} flex items-center gap-1 font-mono`;
           sChg.innerHTML = `<i data-lucide="${isUp ? 'trending-up' : 'trending-down'}" class="w-4 h-4"></i> ${sign}${chgPct.toFixed(2)}% (${sign}${chgNom.toFixed(2)} pts)`;
+        }
+      } else {
+        if (hPrice) hPrice.innerText = 'Unavailable';
+        if (hChg) {
+          hChg.innerText = '--';
+          hChg.className = 'text-lightSecText dark:text-darkSecText font-bold font-mono';
+        }
+        if (sPrice) sPrice.innerText = 'Unavailable';
+        if (sChg) {
+          sChg.className = 'text-xs font-semibold text-lightSecText dark:text-darkSecText flex items-center gap-1 font-mono';
+          sChg.innerText = 'Data IHSG tidak tersedia';
         }
       }
 
