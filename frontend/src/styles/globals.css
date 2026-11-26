@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #F5F7FB;
+    --card: #FFFFFF;
+    --card-foreground: #0F172A;
+    --primary: #2563EB;
+    --primary-hover: #1D4ED8;
+    --text-primary: #0F172A;
+    --text-secondary: #64748B;
+    --border: #E2E8F0;
+    --muted: #F1F5F9;
+    --muted-foreground: #64748B;
+    
+    /* Semantic Colors */
+    --color-buy: #10B981;
+    --color-buy-bg: #ECFDF5;
+    --color-sell: #EF4444;
+    --color-sell-bg: #FEF2F2;
+    --color-hold: #F59E0B;
+    --color-hold-bg: #FFFBEB;
+    --color-neutral: #64748B;
+  }
+
+  .dark {
+    --background: #0B1220;
+    --card: #151F30;
+    --card-foreground: #F8FAFC;
+    --primary: #3B82F6;
+    --primary-hover: #60A5FA;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --border: #263449;
+    --muted: #1E293B;
+    --muted-foreground: #94A3B8;
+
+    /* Semantic Colors */
+    --color-buy: #10B981;
+    --color-buy-bg: rgba(16, 185, 129, 0.15);
+    --color-sell: #EF4444;
+    --color-sell-bg: rgba(239, 68, 68, 0.15);
+    --color-hold: #F59E0B;
+    --color-hold-bg: rgba(245, 158, 11, 0.15);
+    --color-neutral: #94A3B8;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Financial Number Typography */
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Pulse animation for live indicators */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.92); }
+}
+
+.animate-live {
+  animation: live-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

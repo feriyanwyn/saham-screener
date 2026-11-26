@@ -1,0 +1,5535 @@
+[
+  {
+    "ticker": "BBCA",
+    "name": "Bank Central Asia Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Major Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2000-05-31"
+  },
+  {
+    "ticker": "BBRI",
+    "name": "Bank Rakyat Indonesia Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Micro & Retail Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2003-11-10"
+  },
+  {
+    "ticker": "BMRI",
+    "name": "Bank Mandiri Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Corporate & Commercial Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2003-07-14"
+  },
+  {
+    "ticker": "BBNI",
+    "name": "Bank Negara Indonesia Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Corporate Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1996-11-25"
+  },
+  {
+    "ticker": "BRIS",
+    "name": "Bank Syariah Indonesia Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Islamic Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2018-05-09"
+  },
+  {
+    "ticker": "BBTN",
+    "name": "Bank Tabungan Negara Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Mortgage Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2009-12-17"
+  },
+  {
+    "ticker": "BDMN",
+    "name": "Bank Danamon Indonesia Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Commercial Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1989-12-06"
+  },
+  {
+    "ticker": "BNGA",
+    "name": "Bank CIMB Niaga Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Commercial Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1989-11-29"
+  },
+  {
+    "ticker": "ARTO",
+    "name": "Bank Jago Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Digital Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2016-01-12"
+  },
+  {
+    "ticker": "MEGA",
+    "name": "Bank Mega Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Retail Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2000-04-17"
+  },
+  {
+    "ticker": "BNLI",
+    "name": "Bank Permata Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Commercial Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-01-15"
+  },
+  {
+    "ticker": "PNBN",
+    "name": "Bank Pan Indonesia Tbk",
+    "sector": "Financials",
+    "subsector": "Banks",
+    "industry": "Commercial Banks",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1982-12-29"
+  },
+  {
+    "ticker": "ADMF",
+    "name": "Adira Dinamika Multi Finance Tbk",
+    "sector": "Financials",
+    "subsector": "Consumer Financing",
+    "industry": "Automotive Financing",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2004-03-31"
+  },
+  {
+    "ticker": "BFIN",
+    "name": "BFI Finance Indonesia Tbk",
+    "sector": "Financials",
+    "subsector": "Consumer Financing",
+    "industry": "Multi Financing",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-05-18"
+  },
+  {
+    "ticker": "ADRO",
+    "name": "Adaro Energy Indonesia Tbk",
+    "sector": "Energy",
+    "subsector": "Coal",
+    "industry": "Thermal Coal",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2008-07-16"
+  },
+  {
+    "ticker": "PTBA",
+    "name": "Bukit Asam Tbk",
+    "sector": "Energy",
+    "subsector": "Coal",
+    "industry": "State Coal Mining",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2002-12-23"
+  },
+  {
+    "ticker": "PGAS",
+    "name": "Perusahaan Gas Negara Tbk",
+    "sector": "Energy",
+    "subsector": "Oil & Gas",
+    "industry": "Gas Distribution",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2003-12-15"
+  },
+  {
+    "ticker": "MEDC",
+    "name": "Medco Energi Internasional Tbk",
+    "sector": "Energy",
+    "subsector": "Oil & Gas",
+    "industry": "Oil & Gas Exploration",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1994-10-12"
+  },
+  {
+    "ticker": "BREN",
+    "name": "Barito Renewables Energy Tbk",
+    "sector": "Energy",
+    "subsector": "Renewable Energy",
+    "industry": "Geothermal Power",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2023-10-09"
+  },
+  {
+    "ticker": "PGEO",
+    "name": "Pertamina Geothermal Energy Tbk",
+    "sector": "Energy",
+    "subsector": "Renewable Energy",
+    "industry": "Geothermal Power",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2023-02-24"
+  },
+  {
+    "ticker": "AKRA",
+    "name": "AKR Corporindo Tbk",
+    "sector": "Energy",
+    "subsector": "Oil & Gas",
+    "industry": "Fuel Distribution & Logistics",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1994-10-03"
+  },
+  {
+    "ticker": "ITMG",
+    "name": "Indo Tambangraya Megah Tbk",
+    "sector": "Energy",
+    "subsector": "Coal",
+    "industry": "High-Calorie Coal",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2007-12-18"
+  },
+  {
+    "ticker": "INDY",
+    "name": "Indika Energy Tbk",
+    "sector": "Energy",
+    "subsector": "Coal",
+    "industry": "Diversified Energy",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2008-06-11"
+  },
+  {
+    "ticker": "ENRG",
+    "name": "Energi Mega Persada Tbk",
+    "sector": "Energy",
+    "subsector": "Oil & Gas",
+    "industry": "Oil & Gas Exploration",
+    "board": "Pengembangan",
+    "status": "ACTIVE",
+    "listing_date": "2004-06-07"
+  },
+  {
+    "ticker": "ELSA",
+    "name": "Elnusa Tbk",
+    "sector": "Energy",
+    "subsector": "Oil & Gas Services",
+    "industry": "Upstream Support",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2008-02-06"
+  },
+  {
+    "ticker": "DOID",
+    "name": "Delta Dunia Makmur Tbk",
+    "sector": "Energy",
+    "subsector": "Coal Services",
+    "industry": "Mining Contracting",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2001-07-24"
+  },
+  {
+    "ticker": "RAJA",
+    "name": "Rukun Raharja Tbk",
+    "sector": "Energy",
+    "subsector": "Oil & Gas",
+    "industry": "Gas Infrastructure",
+    "board": "Pengembangan",
+    "status": "ACTIVE",
+    "listing_date": "2006-01-19"
+  },
+  {
+    "ticker": "ANTM",
+    "name": "Aneka Tambang Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Metals & Minerals",
+    "industry": "Nickel, Gold & Bauxite",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1997-11-27"
+  },
+  {
+    "ticker": "INCO",
+    "name": "Vale Indonesia Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Metals & Minerals",
+    "industry": "Nickel Mining",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-05-16"
+  },
+  {
+    "ticker": "MDKA",
+    "name": "Merdeka Copper Gold Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Metals & Minerals",
+    "industry": "Gold & Copper",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2015-06-19"
+  },
+  {
+    "ticker": "AMMN",
+    "name": "Amman Mineral Internasional Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Metals & Minerals",
+    "industry": "Copper & Gold",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2023-07-07"
+  },
+  {
+    "ticker": "TPIA",
+    "name": "Chandra Asri Pacific Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Chemicals",
+    "industry": "Petrochemicals",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2008-05-26"
+  },
+  {
+    "ticker": "BRPT",
+    "name": "Barito Pacific Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Chemicals",
+    "industry": "Diversified Chemicals",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1993-10-01"
+  },
+  {
+    "ticker": "INKP",
+    "name": "Indah Kiat Pulp & Paper Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Paper & Forestry",
+    "industry": "Pulp & Paper",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-07-16"
+  },
+  {
+    "ticker": "TKIM",
+    "name": "Pabrik Kertas Tjiwi Kimia Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Paper & Forestry",
+    "industry": "Paper Production",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-04-03"
+  },
+  {
+    "ticker": "SMGR",
+    "name": "Semen Indonesia Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Building Materials",
+    "industry": "Cement",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1991-09-09"
+  },
+  {
+    "ticker": "INTP",
+    "name": "Indocement Tunggal Prakarsa Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Building Materials",
+    "industry": "Cement",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1989-12-05"
+  },
+  {
+    "ticker": "NCKL",
+    "name": "Trimegah Bangun Persada Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Metals & Minerals",
+    "industry": "Nickel Processing",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2023-04-12"
+  },
+  {
+    "ticker": "MBMA",
+    "name": "Merdeka Battery Materials Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Metals & Minerals",
+    "industry": "Battery Minerals",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2023-04-18"
+  },
+  {
+    "ticker": "ESSA",
+    "name": "Essence Indonesia Tbk",
+    "sector": "Basic Materials",
+    "subsector": "Chemicals",
+    "industry": "Ammonia & LPG",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2012-02-01"
+  },
+  {
+    "ticker": "ICBP",
+    "name": "Indofood CBP Sukses Makmur Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Food & Beverages",
+    "industry": "Packaged Food",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2010-10-07"
+  },
+  {
+    "ticker": "INDF",
+    "name": "Indofood Sukses Makmur Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Food & Beverages",
+    "industry": "Agribusiness & Food",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1994-07-14"
+  },
+  {
+    "ticker": "UNVR",
+    "name": "Unilever Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Personal Care",
+    "industry": "Home & Personal Care",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1982-01-11"
+  },
+  {
+    "ticker": "MYOR",
+    "name": "Mayora Indah Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Food & Beverages",
+    "industry": "Confectionery & Biscuits",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-07-04"
+  },
+  {
+    "ticker": "CPIN",
+    "name": "Charoen Pokphand Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Agricultural Products",
+    "industry": "Poultry & Feedmill",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1991-01-15"
+  },
+  {
+    "ticker": "JPFA",
+    "name": "Japfa Comfeed Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Agricultural Products",
+    "industry": "Poultry & Livestock",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1989-10-23"
+  },
+  {
+    "ticker": "CMRY",
+    "name": "Cisarua Mountain Dairy Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Food & Beverages",
+    "industry": "Dairy & Premium Sausage",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2021-12-06"
+  },
+  {
+    "ticker": "HMSP",
+    "name": "H.M. Sampoerna Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Tobacco",
+    "industry": "Cigarettes",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-08-15"
+  },
+  {
+    "ticker": "GGRM",
+    "name": "Gudang Garam Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Tobacco",
+    "industry": "Cigarettes",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-08-27"
+  },
+  {
+    "ticker": "AMRT",
+    "name": "Sumber Alfaria Trijaya Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Retail",
+    "industry": "Minimarket Chain",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2009-01-15"
+  },
+  {
+    "ticker": "MIDI",
+    "name": "Midi Utama Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Retail",
+    "industry": "Convenience Store",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2010-11-30"
+  },
+  {
+    "ticker": "AALI",
+    "name": "Astra Agro Lestari Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Agricultural Products",
+    "industry": "Palm Oil (CPO)",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1997-12-09"
+  },
+  {
+    "ticker": "TAPG",
+    "name": "Triputra Agro Persada Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Agricultural Products",
+    "industry": "Palm Oil (CPO)",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2021-04-12"
+  },
+  {
+    "ticker": "MAPI",
+    "name": "Mitra Adiperkasa Tbk",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Retailing",
+    "industry": "Lifestyle Retail",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2004-11-10"
+  },
+  {
+    "ticker": "MAPA",
+    "name": "MAP Aktif Adiperkasa Tbk",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Retailing",
+    "industry": "Sports & Kids Retail",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2018-07-05"
+  },
+  {
+    "ticker": "ACES",
+    "name": "Aspirasi Hidup Indonesia Tbk (ex-Ace)",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Retailing",
+    "industry": "Home Improvement",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2007-11-06"
+  },
+  {
+    "ticker": "ERAA",
+    "name": "Erajaya Swasembada Tbk",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Retailing",
+    "industry": "Gadget & Electronics",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2011-12-14"
+  },
+  {
+    "ticker": "AUTO",
+    "name": "Astra Otoparts Tbk",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Automotive Components",
+    "industry": "Auto Parts",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1998-06-15"
+  },
+  {
+    "ticker": "DRMA",
+    "name": "Dharma Polimetal Tbk",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Automotive Components",
+    "industry": "EV & Auto Parts",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2021-12-20"
+  },
+  {
+    "ticker": "SMSM",
+    "name": "Selamat Sempurna Tbk",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Automotive Components",
+    "industry": "Automotive Filters",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1996-09-09"
+  },
+  {
+    "ticker": "GJTL",
+    "name": "Gajah Tunggal Tbk",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Automotive Components",
+    "industry": "Tires",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-05-08"
+  },
+  {
+    "ticker": "MNCN",
+    "name": "Media Nusantara Citra Tbk",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Media & Entertainment",
+    "industry": "Broadcasting & Content",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2007-06-22"
+  },
+  {
+    "ticker": "SCMA",
+    "name": "Surya Citra Media Tbk",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Media & Entertainment",
+    "industry": "Television & Streaming",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2002-07-16"
+  },
+  {
+    "ticker": "KLBF",
+    "name": "Kalbe Farma Tbk",
+    "sector": "Healthcare",
+    "subsector": "Pharmaceuticals",
+    "industry": "Prescription & Consumer Health",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1991-07-30"
+  },
+  {
+    "ticker": "MIKA",
+    "name": "Mitra Keluarga Karyasehat Tbk",
+    "sector": "Healthcare",
+    "subsector": "Healthcare Services",
+    "industry": "Hospitals",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2015-03-24"
+  },
+  {
+    "ticker": "HEAL",
+    "name": "Medikaloka Hermina Tbk",
+    "sector": "Healthcare",
+    "subsector": "Healthcare Services",
+    "industry": "Mother & Child Hospitals",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2018-05-16"
+  },
+  {
+    "ticker": "SILO",
+    "name": "Siloam International Hospitals Tbk",
+    "sector": "Healthcare",
+    "subsector": "Healthcare Services",
+    "industry": "Premium Hospitals",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2013-09-12"
+  },
+  {
+    "ticker": "SIDO",
+    "name": "Industri Jamu Dan Farmasi Sido Muncul Tbk",
+    "sector": "Healthcare",
+    "subsector": "Herbal Medicine",
+    "industry": "Herbal Supplements",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2013-12-18"
+  },
+  {
+    "ticker": "PRDA",
+    "name": "Prodia Widyahusada Tbk",
+    "sector": "Healthcare",
+    "subsector": "Healthcare Services",
+    "industry": "Clinical Laboratory",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2016-12-07"
+  },
+  {
+    "ticker": "TSPC",
+    "name": "Tempo Scan Pacific Tbk",
+    "sector": "Healthcare",
+    "subsector": "Pharmaceuticals",
+    "industry": "Consumer Health",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1994-06-17"
+  },
+  {
+    "ticker": "GOTO",
+    "name": "GoTo Gojek Tokopedia Tbk",
+    "sector": "Technology",
+    "subsector": "Online Services",
+    "industry": "On-Demand & FinTech",
+    "board": "Pengembangan",
+    "status": "ACTIVE",
+    "listing_date": "2022-04-11"
+  },
+  {
+    "ticker": "BUKA",
+    "name": "Bukalapak.com Tbk",
+    "sector": "Technology",
+    "subsector": "Online Services",
+    "industry": "E-Commerce",
+    "board": "Pengembangan",
+    "status": "ACTIVE",
+    "listing_date": "2021-08-06"
+  },
+  {
+    "ticker": "EMTK",
+    "name": "Elang Mahkota Teknologi Tbk",
+    "sector": "Technology",
+    "subsector": "Technology Conglomerate",
+    "industry": "Tech & Media Investment",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2010-01-12"
+  },
+  {
+    "ticker": "BELI",
+    "name": "Global Digital Niaga Tbk (Blibli)",
+    "sector": "Technology",
+    "subsector": "Online Services",
+    "industry": "Omnichannel Commerce",
+    "board": "Pengembangan",
+    "status": "ACTIVE",
+    "listing_date": "2022-11-08"
+  },
+  {
+    "ticker": "DCII",
+    "name": "DCI Indonesia Tbk",
+    "sector": "Technology",
+    "subsector": "IT Services",
+    "industry": "Tier-4 Data Center",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2021-01-06"
+  },
+  {
+    "ticker": "MTDL",
+    "name": "Metrodata Electronics Tbk",
+    "sector": "Technology",
+    "subsector": "IT Hardware & Solutions",
+    "industry": "IT Distribution & Solutions",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-04-09"
+  },
+  {
+    "ticker": "WIRG",
+    "name": "WIR ASIA Tbk",
+    "sector": "Technology",
+    "subsector": "Software & Tech",
+    "industry": "AR & Metaverse Solutions",
+    "board": "Pengembangan",
+    "status": "ACTIVE",
+    "listing_date": "2022-04-04"
+  },
+  {
+    "ticker": "MCAS",
+    "name": "M Cash Integrasi Tbk",
+    "sector": "Technology",
+    "subsector": "Digital Infrastructure",
+    "industry": "Digital Distribution Kiosks",
+    "board": "Pengembangan",
+    "status": "ACTIVE",
+    "listing_date": "2017-11-01"
+  },
+  {
+    "ticker": "TLKM",
+    "name": "Telkom Indonesia Tbk",
+    "sector": "Infrastructures",
+    "subsector": "Telecommunication",
+    "industry": "Integrated Telecoms",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1995-11-14"
+  },
+  {
+    "ticker": "ISAT",
+    "name": "Indosat Ooredoo Hutchison Tbk",
+    "sector": "Infrastructures",
+    "subsector": "Telecommunication",
+    "industry": "Wireless Telecoms",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1994-10-19"
+  },
+  {
+    "ticker": "EXCL",
+    "name": "XL Axiata Tbk",
+    "sector": "Infrastructures",
+    "subsector": "Telecommunication",
+    "industry": "Wireless Telecoms",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2005-09-29"
+  },
+  {
+    "ticker": "TOWR",
+    "name": "Sarana Menara Nusantara Tbk",
+    "sector": "Infrastructures",
+    "subsector": "Telecom Infrastructure",
+    "industry": "Telecom Towers & Fiber",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2010-03-08"
+  },
+  {
+    "ticker": "TBIG",
+    "name": "Tower Bersama Infrastructure Tbk",
+    "sector": "Infrastructures",
+    "subsector": "Telecom Infrastructure",
+    "industry": "Telecom Towers",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2010-10-26"
+  },
+  {
+    "ticker": "JSMR",
+    "name": "Jasa Marga Tbk",
+    "sector": "Infrastructures",
+    "subsector": "Toll Roads",
+    "industry": "Highway Operator",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2007-11-12"
+  },
+  {
+    "ticker": "MTEL",
+    "name": "Dayamitra Telekomunikasi Tbk (Mitratel)",
+    "sector": "Infrastructures",
+    "subsector": "Telecom Infrastructure",
+    "industry": "Telecom Towers",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2021-11-22"
+  },
+  {
+    "ticker": "PTPP",
+    "name": "PP (Persero) Tbk",
+    "sector": "Infrastructures",
+    "subsector": "Construction",
+    "industry": "Civil & Building Construction",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2010-02-09"
+  },
+  {
+    "ticker": "ADHI",
+    "name": "Adhi Karya (Persero) Tbk",
+    "sector": "Infrastructures",
+    "subsector": "Construction",
+    "industry": "Infrastructure Construction",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2004-03-18"
+  },
+  {
+    "ticker": "WIKA",
+    "name": "Wijaya Karya (Persero) Tbk",
+    "sector": "Infrastructures",
+    "subsector": "Construction",
+    "industry": "State Construction",
+    "board": "Pemantauan Khusus",
+    "status": "SUSPENDED",
+    "listing_date": "2007-10-29"
+  },
+  {
+    "ticker": "ASII",
+    "name": "Astra International Tbk",
+    "sector": "Industrials",
+    "subsector": "Diversified Industrials",
+    "industry": "Automotive, Heavy Machinery & Mining",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-04-04"
+  },
+  {
+    "ticker": "UNTR",
+    "name": "United Tractors Tbk",
+    "sector": "Industrials",
+    "subsector": "Heavy Machinery",
+    "industry": "Mining Equipment & Contracting",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1989-09-19"
+  },
+  {
+    "ticker": "HEXA",
+    "name": "Hexindo Adiperkasa Tbk",
+    "sector": "Industrials",
+    "subsector": "Heavy Machinery",
+    "industry": "Hitachi Equipment Distributor",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1995-02-13"
+  },
+  {
+    "ticker": "ARNA",
+    "name": "Arwana Citramulia Tbk",
+    "sector": "Industrials",
+    "subsector": "Building Materials",
+    "industry": "Ceramic Tiles",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2001-07-17"
+  },
+  {
+    "ticker": "MARK",
+    "name": "Mark Dynamics Indonesia Tbk",
+    "sector": "Industrials",
+    "subsector": "Industrial Goods",
+    "industry": "Nitrile Glove Formers",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2017-07-12"
+  },
+  {
+    "ticker": "BMTR",
+    "name": "Global Mediacom Tbk",
+    "sector": "Industrials",
+    "subsector": "Holding Company",
+    "industry": "Media & Telecom Holdings",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1995-07-17"
+  },
+  {
+    "ticker": "BSDE",
+    "name": "Bumi Serpong Damai Tbk",
+    "sector": "Properties & Real Estate",
+    "subsector": "Real Estate Development",
+    "industry": "Township Development",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2008-06-06"
+  },
+  {
+    "ticker": "CTRA",
+    "name": "Ciputra Development Tbk",
+    "sector": "Properties & Real Estate",
+    "subsector": "Real Estate Development",
+    "industry": "Residential & Commercial",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1994-03-28"
+  },
+  {
+    "ticker": "PWON",
+    "name": "Pakuwon Jati Tbk",
+    "sector": "Properties & Real Estate",
+    "subsector": "Real Estate Development",
+    "industry": "Retail Malls & Condominiums",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1989-10-09"
+  },
+  {
+    "ticker": "SMRA",
+    "name": "Summarecon Agung Tbk",
+    "sector": "Properties & Real Estate",
+    "subsector": "Real Estate Development",
+    "industry": "Integrated Townships",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1990-05-07"
+  },
+  {
+    "ticker": "ASRI",
+    "name": "Alam Sutera Realty Tbk",
+    "sector": "Properties & Real Estate",
+    "subsector": "Real Estate Development",
+    "industry": "Townships & High-Rise",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2007-12-18"
+  },
+  {
+    "ticker": "SSIA",
+    "name": "Surya Semesta Internusa Tbk",
+    "sector": "Properties & Real Estate",
+    "subsector": "Industrial Estates",
+    "industry": "Subang Smartpolitan",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1997-03-27"
+  },
+  {
+    "ticker": "KIJA",
+    "name": "Kawasan Industri Jababeka Tbk",
+    "sector": "Properties & Real Estate",
+    "subsector": "Industrial Estates",
+    "industry": "Industrial City",
+    "board": "Pengembangan",
+    "status": "ACTIVE",
+    "listing_date": "1994-01-10"
+  },
+  {
+    "ticker": "BIRD",
+    "name": "Blue Bird Tbk",
+    "sector": "Transportation & Logistic",
+    "subsector": "Passenger Transportation",
+    "industry": "Taxi & Mobility Services",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2014-11-05"
+  },
+  {
+    "ticker": "SMDR",
+    "name": "Samudera Indonesia Tbk",
+    "sector": "Transportation & Logistic",
+    "subsector": "Maritime Logistics",
+    "industry": "Container Shipping",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "1999-07-05"
+  },
+  {
+    "ticker": "ASSA",
+    "name": "Adi Sarana Armada Tbk",
+    "sector": "Transportation & Logistic",
+    "subsector": "Logistics & Rental",
+    "industry": "Anteraja & Vehicle Rental",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2012-11-12"
+  },
+  {
+    "ticker": "TMAS",
+    "name": "Temas Tbk",
+    "sector": "Transportation & Logistic",
+    "subsector": "Maritime Logistics",
+    "industry": "Domestic Sea Freight",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2003-07-09"
+  },
+  {
+    "ticker": "IPCC",
+    "name": "Indonesia Kendaraan Terminal Tbk",
+    "sector": "Transportation & Logistic",
+    "subsector": "Port Services",
+    "industry": "Car Terminal Operator",
+    "board": "Utama",
+    "status": "ACTIVE",
+    "listing_date": "2018-07-09"
+  },
+  {
+    "ticker": "GIAA",
+    "name": "Garuda Indonesia (Persero) Tbk",
+    "sector": "Transportation & Logistic",
+    "subsector": "Airlines",
+    "industry": "National Flag Carrier",
+    "board": "Pemantauan Khusus",
+    "status": "SUSPENDED",
+    "listing_date": "2011-02-11"
+  },
+  {
+    "ticker": "PRAY",
+    "name": "Fimperkasa Utama Tbk",
+    "sector": "Listed Investment Products",
+    "subsector": "Special Purpose",
+    "industry": "Investment Entity",
+    "board": "Akselerasi",
+    "status": "ACTIVE",
+    "listing_date": "2021-04-09"
+  },
+  {
+    "ticker": "UVCR",
+    "name": "Trimegah Karya Pratama Tbk",
+    "sector": "Technology",
+    "subsector": "Vouchers & FinTech",
+    "industry": "Ultra Voucher",
+    "board": "Akselerasi",
+    "status": "ACTIVE",
+    "listing_date": "2021-07-27"
+  },
+  {
+    "ticker": "NSSS",
+    "name": "Nusantara Sawit Sejahtera Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "subsector": "Plantations",
+    "industry": "Palm Oil",
+    "board": "Pengembangan",
+    "status": "NEWLY_LISTED",
+    "listing_date": "2024-03-10"
+  },
+  {
+    "ticker": "BATR",
+    "name": "Benteng Anugerah Sejahtera Tbk",
+    "sector": "Industrials",
+    "subsector": "Construction Supply",
+    "industry": "Industrial Supply",
+    "board": "Akselerasi",
+    "status": "NEWLY_LISTED",
+    "listing_date": "2024-05-15"
+  },
+  {
+    "ticker": "SRIL",
+    "name": "Sri Rejeki Isman Tbk",
+    "sector": "Consumer Cyclicals",
+    "subsector": "Textiles",
+    "industry": "Garment & Military Textiles",
+    "board": "Pemantauan Khusus",
+    "status": "SUSPENDED",
+    "listing_date": "2013-06-17"
+  },
+  {
+    "ticker": "COWL",
+    "name": "Cowell Development Tbk",
+    "sector": "Properties & Real Estate",
+    "subsector": "Property",
+    "industry": "Property Developer",
+    "board": "Pemantauan Khusus",
+    "status": "DELISTED",
+    "listing_date": "2007-12-19"
+  },
+  {
+    "ticker": "BTPS",
+    "name": "BTPS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BJTM",
+    "name": "BJTM Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BJBR",
+    "name": "BJBR Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AGRO",
+    "name": "AGRO Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BTPN",
+    "name": "BTPN Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PNLF",
+    "name": "PNLF Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BBKP",
+    "name": "BBKP Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BEKS",
+    "name": "BEKS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PNBS",
+    "name": "PNBS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BNII",
+    "name": "BNII Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MCOR",
+    "name": "MCOR Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WOMF",
+    "name": "WOMF Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PNIN",
+    "name": "PNIN Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BGTG",
+    "name": "BGTG Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IMJS",
+    "name": "IMJS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NISP",
+    "name": "NISP Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BSIM",
+    "name": "BSIM Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BABP",
+    "name": "BABP Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FINN",
+    "name": "FINN Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PANS",
+    "name": "PANS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BBHI",
+    "name": "BBHI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MAYA",
+    "name": "MAYA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INPC",
+    "name": "INPC Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CFIN",
+    "name": "CFIN Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BVIC",
+    "name": "BVIC Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PADI",
+    "name": "PADI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BINA",
+    "name": "BINA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AGRS",
+    "name": "AGRS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MTWI",
+    "name": "MTWI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BNBA",
+    "name": "BNBA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BCAP",
+    "name": "BCAP Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ASJT",
+    "name": "ASJT Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "VINS",
+    "name": "VINS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NOBU",
+    "name": "NOBU Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MFIN",
+    "name": "MFIN Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LPPS",
+    "name": "LPPS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "APIC",
+    "name": "APIC Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CASA",
+    "name": "CASA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BBYB",
+    "name": "BBYB Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRIM",
+    "name": "TRIM Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BACA",
+    "name": "BACA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BMAS",
+    "name": "BMAS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "POLA",
+    "name": "POLA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LIFE",
+    "name": "LIFE Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LPGI",
+    "name": "LPGI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AHAP",
+    "name": "AHAP Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SDRA",
+    "name": "SDRA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FUJI",
+    "name": "FUJI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BKSW",
+    "name": "BKSW Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DNAR",
+    "name": "DNAR Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TIFA",
+    "name": "TIFA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HDFA",
+    "name": "HDFA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "VICO",
+    "name": "VICO Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "VRNA",
+    "name": "VRNA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ASMI",
+    "name": "ASMI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ASRM",
+    "name": "ASRM Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MREI",
+    "name": "MREI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ASBI",
+    "name": "ASBI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AMAG",
+    "name": "AMAG Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ASDM",
+    "name": "ASDM Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BBLD",
+    "name": "BBLD Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ABDA",
+    "name": "ABDA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BCIC",
+    "name": "BCIC Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BPII",
+    "name": "BPII Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BSWD",
+    "name": "BSWD Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BPFI",
+    "name": "BPFI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DEFI",
+    "name": "DEFI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GSMF",
+    "name": "GSMF Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RELI",
+    "name": "RELI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SMMA",
+    "name": "SMMA Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRUS",
+    "name": "TRUS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "YULE",
+    "name": "YULE Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BBMD",
+    "name": "BBMD Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IBFN",
+    "name": "IBFN Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JMAS",
+    "name": "JMAS Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TUGU",
+    "name": "TUGU Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AMAR",
+    "name": "AMAR Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AMOR",
+    "name": "AMOR Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BHAT",
+    "name": "BHAT Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BBSI",
+    "name": "BBSI Indonesia Tbk",
+    "sector": "Financials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HRUM",
+    "name": "HRUM Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BUMI",
+    "name": "BUMI Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TINS",
+    "name": "TINS Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PTRO",
+    "name": "PTRO Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRAM",
+    "name": "TRAM Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PSAB",
+    "name": "PSAB Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BRMS",
+    "name": "BRMS Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MYOH",
+    "name": "MYOH Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ZINC",
+    "name": "ZINC Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BIPI",
+    "name": "BIPI Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DKFT",
+    "name": "DKFT Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FIRE",
+    "name": "FIRE Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DEWA",
+    "name": "DEWA Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MBAP",
+    "name": "MBAP Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BOSS",
+    "name": "BOSS Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ARTI",
+    "name": "ARTI Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SMMT",
+    "name": "SMMT Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TOBA",
+    "name": "TOBA Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CTTH",
+    "name": "CTTH Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BYAN",
+    "name": "BYAN Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SMRU",
+    "name": "SMRU Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KKGI",
+    "name": "KKGI Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PKPK",
+    "name": "PKPK Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BSSR",
+    "name": "BSSR Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CITA",
+    "name": "CITA Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GTBO",
+    "name": "GTBO Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MITI",
+    "name": "MITI Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DSSA",
+    "name": "DSSA Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "APEX",
+    "name": "APEX Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RUIS",
+    "name": "RUIS Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SURE",
+    "name": "SURE Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ARII",
+    "name": "ARII Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MTFN",
+    "name": "MTFN Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GEMS",
+    "name": "GEMS Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CKRA",
+    "name": "CKRA Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BRAU",
+    "name": "BRAU Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TKGA",
+    "name": "TKGA Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WOWS",
+    "name": "WOWS Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IFSH",
+    "name": "IFSH Indonesia Tbk",
+    "sector": "Energy",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LSIP",
+    "name": "LSIP Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BWPT",
+    "name": "BWPT Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SIMP",
+    "name": "SIMP Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BEEF",
+    "name": "BEEF Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SMAR",
+    "name": "SMAR Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SSMS",
+    "name": "SSMS Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BISI",
+    "name": "BISI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SGRO",
+    "name": "SGRO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ANDI",
+    "name": "ANDI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "UNSP",
+    "name": "UNSP Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DSFI",
+    "name": "DSFI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GZCO",
+    "name": "GZCO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MGRO",
+    "name": "MGRO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PALM",
+    "name": "PALM Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DSNG",
+    "name": "DSNG Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ANJT",
+    "name": "ANJT Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JAWA",
+    "name": "JAWA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MAGP",
+    "name": "MAGP Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GOLL",
+    "name": "GOLL Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PSGO",
+    "name": "PSGO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CSRA",
+    "name": "CSRA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PGUN",
+    "name": "PGUN Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PNGO",
+    "name": "PNGO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KAEF",
+    "name": "KAEF Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ULTJ",
+    "name": "ULTJ Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CLEO",
+    "name": "CLEO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HOKI",
+    "name": "HOKI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INAF",
+    "name": "INAF Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WOOD",
+    "name": "WOOD Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GOOD",
+    "name": "GOOD Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WIIM",
+    "name": "WIIM Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KINO",
+    "name": "KINO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ROTI",
+    "name": "ROTI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TBLA",
+    "name": "TBLA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AISA",
+    "name": "AISA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CAMP",
+    "name": "CAMP Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MERK",
+    "name": "MERK Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CEKA",
+    "name": "CEKA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ITIC",
+    "name": "ITIC Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FOOD",
+    "name": "FOOD Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KPAS",
+    "name": "KPAS Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IIKP",
+    "name": "IIKP Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ADES",
+    "name": "ADES Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DVLA",
+    "name": "DVLA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MLBI",
+    "name": "MLBI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PEHA",
+    "name": "PEHA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BUDI",
+    "name": "BUDI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DLTA",
+    "name": "DLTA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "STTP",
+    "name": "STTP Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HRTA",
+    "name": "HRTA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MRAT",
+    "name": "MRAT Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BTEK",
+    "name": "BTEK Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TCID",
+    "name": "TCID Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RMBA",
+    "name": "RMBA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "COCO",
+    "name": "COCO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PYFA",
+    "name": "PYFA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PANI",
+    "name": "PANI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KICI",
+    "name": "KICI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CINT",
+    "name": "CINT Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PCAR",
+    "name": "PCAR Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SKBM",
+    "name": "SKBM Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MBTO",
+    "name": "MBTO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LMPI",
+    "name": "LMPI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SKLT",
+    "name": "SKLT Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ALTO",
+    "name": "ALTO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PSDN",
+    "name": "PSDN Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SCPI",
+    "name": "SCPI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SQBB",
+    "name": "SQBB Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SQBI",
+    "name": "SQBI Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KEJU",
+    "name": "KEJU Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DMND",
+    "name": "DMND Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IKAN",
+    "name": "IKAN Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CBMF",
+    "name": "CBMF Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SOFA",
+    "name": "SOFA Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TOYS",
+    "name": "TOYS Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SOHO",
+    "name": "SOHO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ENZO",
+    "name": "ENZO Indonesia Tbk",
+    "sector": "Consumer Non-Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WSBP",
+    "name": "WSBP Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WTON",
+    "name": "WTON Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KRAS",
+    "name": "KRAS Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SMBR",
+    "name": "SMBR Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NIKL",
+    "name": "NIKL Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ISSP",
+    "name": "ISSP Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "EKAD",
+    "name": "EKAD Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ADMG",
+    "name": "ADMG Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SMCB",
+    "name": "SMCB Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SRSN",
+    "name": "SRSN Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FPNI",
+    "name": "FPNI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AGII",
+    "name": "AGII Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SWAT",
+    "name": "SWAT Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CAKK",
+    "name": "CAKK Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BTON",
+    "name": "BTON Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TOTO",
+    "name": "TOTO Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CPRO",
+    "name": "CPRO Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TDPM",
+    "name": "TDPM Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BAJA",
+    "name": "BAJA Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GDST",
+    "name": "GDST Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FASW",
+    "name": "FASW Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KDSI",
+    "name": "KDSI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IPOL",
+    "name": "IPOL Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PICO",
+    "name": "PICO Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KMTR",
+    "name": "KMTR Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KIAS",
+    "name": "KIAS Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IGAR",
+    "name": "IGAR Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PBID",
+    "name": "PBID Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MLIA",
+    "name": "MLIA Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MDKI",
+    "name": "MDKI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SPMA",
+    "name": "SPMA Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SULI",
+    "name": "SULI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "UNIC",
+    "name": "UNIC Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INCF",
+    "name": "INCF Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INAI",
+    "name": "INAI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ALDO",
+    "name": "ALDO Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INOV",
+    "name": "INOV Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "APLI",
+    "name": "APLI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SIPD",
+    "name": "SIPD Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INCI",
+    "name": "INCI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ALKA",
+    "name": "ALKA Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MOLI",
+    "name": "MOLI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LION",
+    "name": "LION Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TBMS",
+    "name": "TBMS Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AMFG",
+    "name": "AMFG Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ALMI",
+    "name": "ALMI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INRU",
+    "name": "INRU Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SMKL",
+    "name": "SMKL Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ETWA",
+    "name": "ETWA Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AKPI",
+    "name": "AKPI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TIRT",
+    "name": "TIRT Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "YPAS",
+    "name": "YPAS Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LMSH",
+    "name": "LMSH Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IMPC",
+    "name": "IMPC Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DPNS",
+    "name": "DPNS Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BRNA",
+    "name": "BRNA Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JKSW",
+    "name": "JKSW Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TALF",
+    "name": "TALF Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRST",
+    "name": "TRST Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CTBN",
+    "name": "CTBN Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DAJK",
+    "name": "DAJK Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KBRI",
+    "name": "KBRI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MAIN",
+    "name": "MAIN Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JPRS",
+    "name": "JPRS Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SAIP",
+    "name": "SAIP Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SOBI",
+    "name": "SOBI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BRPT-R",
+    "name": "BRPT-R Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GGRP",
+    "name": "GGRP Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PURE",
+    "name": "PURE Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SINI",
+    "name": "SINI Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ESIP",
+    "name": "ESIP Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IFII",
+    "name": "IFII Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SAMF",
+    "name": "SAMF Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "EPAC",
+    "name": "EPAC Indonesia Tbk",
+    "sector": "Basic Materials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FREN",
+    "name": "FREN Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SOCI",
+    "name": "SOCI Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MBSS",
+    "name": "MBSS Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BULL",
+    "name": "BULL Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LEAD",
+    "name": "LEAD Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DEAL",
+    "name": "DEAL Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TCPI",
+    "name": "TCPI Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PSSI",
+    "name": "PSSI Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "POWR",
+    "name": "POWR Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PPRE",
+    "name": "PPRE Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TAXI",
+    "name": "TAXI Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CENT",
+    "name": "CENT Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RIGS",
+    "name": "RIGS Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "META",
+    "name": "META Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TGRA",
+    "name": "TGRA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CMPP",
+    "name": "CMPP Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JAYA",
+    "name": "JAYA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SDMU",
+    "name": "SDMU Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TAMU",
+    "name": "TAMU Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JAST",
+    "name": "JAST Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRUK",
+    "name": "TRUK Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KEEN",
+    "name": "KEEN Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IPCM",
+    "name": "IPCM Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CMNP",
+    "name": "CMNP Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MTPS",
+    "name": "MTPS Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SHIP",
+    "name": "SHIP Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IATA",
+    "name": "IATA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BUKK",
+    "name": "BUKK Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MPOW",
+    "name": "MPOW Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AKSI",
+    "name": "AKSI Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KARW",
+    "name": "KARW Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HELI",
+    "name": "HELI Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GOLD",
+    "name": "GOLD Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WINS",
+    "name": "WINS Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TPMA",
+    "name": "TPMA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BALI",
+    "name": "BALI Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LRNA",
+    "name": "LRNA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NELY",
+    "name": "NELY Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WEHA",
+    "name": "WEHA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TNCA",
+    "name": "TNCA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GHON",
+    "name": "GHON Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BBRM",
+    "name": "BBRM Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PORT",
+    "name": "PORT Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "OASA",
+    "name": "OASA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BPTR",
+    "name": "BPTR Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CASS",
+    "name": "CASS Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CANI",
+    "name": "CANI Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KJEN",
+    "name": "KJEN Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HITS",
+    "name": "HITS Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BLTA",
+    "name": "BLTA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SAPX",
+    "name": "SAPX Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MIRA",
+    "name": "MIRA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BTEL",
+    "name": "BTEL Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IBST",
+    "name": "IBST Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LAPD",
+    "name": "LAPD Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LCKM",
+    "name": "LCKM Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KOPI",
+    "name": "KOPI Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SAFE",
+    "name": "SAFE Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PTIS",
+    "name": "PTIS Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "APOL",
+    "name": "APOL Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SUPR",
+    "name": "SUPR Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INVS",
+    "name": "INVS Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CPGT",
+    "name": "CPGT Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRUB",
+    "name": "TRUB Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TEBE",
+    "name": "TEBE Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PURA",
+    "name": "PURA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PTPW",
+    "name": "PTPW Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BESS",
+    "name": "BESS Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PPGL",
+    "name": "PPGL Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRJA",
+    "name": "TRJA Indonesia Tbk",
+    "sector": "Infrastructures",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KBLI",
+    "name": "KBLI Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PTSN",
+    "name": "PTSN Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GMFI",
+    "name": "GMFI Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IMAS",
+    "name": "IMAS Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JSKY",
+    "name": "JSKY Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CCSI",
+    "name": "CCSI Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INDR",
+    "name": "INDR Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "UCID",
+    "name": "UCID Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KPAL",
+    "name": "KPAL Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "POLY",
+    "name": "POLY Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MASA",
+    "name": "MASA Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INDS",
+    "name": "INDS Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KBLM",
+    "name": "KBLM Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "VOKS",
+    "name": "VOKS Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "STAR",
+    "name": "STAR Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PBRX",
+    "name": "PBRX Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SCCO",
+    "name": "SCCO Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BATA",
+    "name": "BATA Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GDYR",
+    "name": "GDYR Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "POLU",
+    "name": "POLU Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ESTI",
+    "name": "ESTI Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BRAM",
+    "name": "BRAM Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TFCO",
+    "name": "TFCO Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BOLT",
+    "name": "BOLT Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LPIN",
+    "name": "LPIN Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BELL",
+    "name": "BELL Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRIS",
+    "name": "TRIS Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JECC",
+    "name": "JECC Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ZONE",
+    "name": "ZONE Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RICY",
+    "name": "RICY Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AMIN",
+    "name": "AMIN Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SSTM",
+    "name": "SSTM Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MYTX",
+    "name": "MYTX Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ERTX",
+    "name": "ERTX Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ARKA",
+    "name": "ARKA Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BIMA",
+    "name": "BIMA Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PRAS",
+    "name": "PRAS Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KRAH",
+    "name": "KRAH Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ARGO",
+    "name": "ARGO Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NIPS",
+    "name": "NIPS Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CNTX",
+    "name": "CNTX Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HDTX",
+    "name": "HDTX Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IKBI",
+    "name": "IKBI Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "UNIT",
+    "name": "UNIT Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SLIS",
+    "name": "SLIS Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SBAT",
+    "name": "SBAT Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SCNP",
+    "name": "SCNP Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WSKT",
+    "name": "WSKT Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PPRO",
+    "name": "PPRO Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "APLN",
+    "name": "APLN Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WEGE",
+    "name": "WEGE Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BKSL",
+    "name": "BKSL Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LPKR",
+    "name": "LPKR Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DMAS",
+    "name": "DMAS Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BEST",
+    "name": "BEST Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LPCK",
+    "name": "LPCK Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TOTL",
+    "name": "TOTL Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MDLN",
+    "name": "MDLN Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "POSA",
+    "name": "POSA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MYRX",
+    "name": "MYRX Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JRPT",
+    "name": "JRPT Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BCIP",
+    "name": "BCIP Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RIMO",
+    "name": "RIMO Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NRCA",
+    "name": "NRCA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ELTY",
+    "name": "ELTY Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RBMS",
+    "name": "RBMS Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ACST",
+    "name": "ACST Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TOPS",
+    "name": "TOPS Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PAMG",
+    "name": "PAMG Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DILD",
+    "name": "DILD Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CSIS",
+    "name": "CSIS Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SKRN",
+    "name": "SKRN Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DGIK",
+    "name": "DGIK Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CPRI",
+    "name": "CPRI Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GPRA",
+    "name": "GPRA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MABA",
+    "name": "MABA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BAPI",
+    "name": "BAPI Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "POLL",
+    "name": "POLL Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ARMY",
+    "name": "ARMY Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PLIN",
+    "name": "PLIN Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RODA",
+    "name": "RODA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BAPA",
+    "name": "BAPA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TARA",
+    "name": "TARA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GAMA",
+    "name": "GAMA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MMLP",
+    "name": "MMLP Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LCGP",
+    "name": "LCGP Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FORZ",
+    "name": "FORZ Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MPRO",
+    "name": "MPRO Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GWSA",
+    "name": "GWSA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KOTA",
+    "name": "KOTA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MTLA",
+    "name": "MTLA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LAND",
+    "name": "LAND Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NZIA",
+    "name": "NZIA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "URBN",
+    "name": "URBN Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IDPR",
+    "name": "IDPR Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INPP",
+    "name": "INPP Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RISE",
+    "name": "RISE Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CITY",
+    "name": "CITY Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JKON",
+    "name": "JKON Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MKPI",
+    "name": "MKPI Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BKDP",
+    "name": "BKDP Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DUTI",
+    "name": "DUTI Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PBSA",
+    "name": "PBSA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RDTX",
+    "name": "RDTX Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MTSM",
+    "name": "MTSM Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SATU",
+    "name": "SATU Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SMDM",
+    "name": "SMDM Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BIPP",
+    "name": "BIPP Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DART",
+    "name": "DART Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NIRO",
+    "name": "NIRO Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GMTD",
+    "name": "GMTD Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BIKA",
+    "name": "BIKA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "OMRE",
+    "name": "OMRE Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "EMDE",
+    "name": "EMDE Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FMII",
+    "name": "FMII Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PUDP",
+    "name": "PUDP Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MTRA",
+    "name": "MTRA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SCBD",
+    "name": "SCBD Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LAMI",
+    "name": "LAMI Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "POLI",
+    "name": "POLI Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "REAL",
+    "name": "REAL Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INDO",
+    "name": "INDO Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRIN",
+    "name": "TRIN Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TAMA",
+    "name": "TAMA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DADA",
+    "name": "DADA Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ASPI",
+    "name": "ASPI Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AMAN",
+    "name": "AMAN Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KBAG",
+    "name": "KBAG Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BBSS",
+    "name": "BBSS Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PURI",
+    "name": "PURI Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ROCK",
+    "name": "ROCK Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HOMI",
+    "name": "HOMI Indonesia Tbk",
+    "sector": "Properties & Real Estate",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LPPF",
+    "name": "LPPF Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RALS",
+    "name": "RALS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TELE",
+    "name": "TELE Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ABBA",
+    "name": "ABBA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MPMX",
+    "name": "MPMX Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MAMI",
+    "name": "MAMI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FILM",
+    "name": "FILM Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MPPA",
+    "name": "MPPA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ENVY",
+    "name": "ENVY Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HOME",
+    "name": "HOME Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MLPL",
+    "name": "MLPL Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BHIT",
+    "name": "BHIT Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "VIVA",
+    "name": "VIVA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IPTV",
+    "name": "IPTV Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IKAI",
+    "name": "IKAI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SRTG",
+    "name": "SRTG Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PZZA",
+    "name": "PZZA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KREN",
+    "name": "KREN Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NUSA",
+    "name": "NUSA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FAST",
+    "name": "FAST Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DYAN",
+    "name": "DYAN Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LUCK",
+    "name": "LUCK Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BOLA",
+    "name": "BOLA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ASGR",
+    "name": "ASGR Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KOBX",
+    "name": "KOBX Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KPIG",
+    "name": "KPIG Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "YELO",
+    "name": "YELO Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HKMU",
+    "name": "HKMU Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KAYU",
+    "name": "KAYU Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LINK",
+    "name": "LINK Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "EAST",
+    "name": "EAST Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MSIN",
+    "name": "MSIN Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JTPE",
+    "name": "JTPE Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SIMA",
+    "name": "SIMA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BNBR",
+    "name": "BNBR Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "POOL",
+    "name": "POOL Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MAPB",
+    "name": "MAPB Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CLPI",
+    "name": "CLPI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LTLS",
+    "name": "LTLS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "IRRA",
+    "name": "IRRA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DUCK",
+    "name": "DUCK Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HRME",
+    "name": "HRME Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DWGL",
+    "name": "DWGL Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CARS",
+    "name": "CARS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DMMX",
+    "name": "DMMX Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HERO",
+    "name": "HERO Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LMAS",
+    "name": "LMAS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PJAA",
+    "name": "PJAA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CNKO",
+    "name": "CNKO Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MINA",
+    "name": "MINA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GLOB",
+    "name": "GLOB Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MLPT",
+    "name": "MLPT Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NATO",
+    "name": "NATO Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BOGA",
+    "name": "BOGA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "OPMS",
+    "name": "OPMS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SKYB",
+    "name": "SKYB Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ITMA",
+    "name": "ITMA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MFMI",
+    "name": "MFMI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MKNT",
+    "name": "MKNT Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KBLV",
+    "name": "KBLV Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RANC",
+    "name": "RANC Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "OKAS",
+    "name": "OKAS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SPTO",
+    "name": "SPTO Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CARE",
+    "name": "CARE Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CLAY",
+    "name": "CLAY Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PANR",
+    "name": "PANR Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AKKU",
+    "name": "AKKU Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FITT",
+    "name": "FITT Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TMPO",
+    "name": "TMPO Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DNET",
+    "name": "DNET Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NFCX",
+    "name": "NFCX Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BMSR",
+    "name": "BMSR Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KIOS",
+    "name": "KIOS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MDIA",
+    "name": "MDIA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DIVA",
+    "name": "DIVA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TFAS",
+    "name": "TFAS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TGKA",
+    "name": "TGKA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BUVA",
+    "name": "BUVA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MICE",
+    "name": "MICE Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MARI",
+    "name": "MARI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "EPMT",
+    "name": "EPMT Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MSKY",
+    "name": "MSKY Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SAME",
+    "name": "SAME Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRIO",
+    "name": "TRIO Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JGLE",
+    "name": "JGLE Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MDRN",
+    "name": "MDRN Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DIGI",
+    "name": "DIGI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INTA",
+    "name": "INTA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BLUE",
+    "name": "BLUE Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WICO",
+    "name": "WICO Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DFAM",
+    "name": "DFAM Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ICON",
+    "name": "ICON Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "WAPO",
+    "name": "WAPO Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DPUM",
+    "name": "DPUM Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FISH",
+    "name": "FISH Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CSAP",
+    "name": "CSAP Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TURI",
+    "name": "TURI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SOSS",
+    "name": "SOSS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "MGNA",
+    "name": "MGNA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SDPC",
+    "name": "SDPC Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PRIM",
+    "name": "PRIM Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TRIL",
+    "name": "TRIL Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TIRA",
+    "name": "TIRA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PGLI",
+    "name": "PGLI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INTD",
+    "name": "INTD Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SRAJ",
+    "name": "SRAJ Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BAYU",
+    "name": "BAYU Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INDX",
+    "name": "INDX Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ARTA",
+    "name": "ARTA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "LPLI",
+    "name": "LPLI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HOTL",
+    "name": "HOTL Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ECII",
+    "name": "ECII Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "DAYA",
+    "name": "DAYA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JIHD",
+    "name": "JIHD Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "APII",
+    "name": "APII Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NASA",
+    "name": "NASA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SOTS",
+    "name": "SOTS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KONI",
+    "name": "KONI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HADE",
+    "name": "HADE Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ZBRA",
+    "name": "ZBRA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PMJS",
+    "name": "PMJS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PDES",
+    "name": "PDES Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KOIN",
+    "name": "KOIN Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GEMA",
+    "name": "GEMA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "BLTZ",
+    "name": "BLTZ Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "JSPT",
+    "name": "JSPT Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "HDIT",
+    "name": "HDIT Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ATIC",
+    "name": "ATIC Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GLVA",
+    "name": "GLVA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "INPS",
+    "name": "INPS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SUGI",
+    "name": "SUGI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PEGE",
+    "name": "PEGE Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ABMM",
+    "name": "ABMM Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PLAS",
+    "name": "PLAS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PSKT",
+    "name": "PSKT Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PNSE",
+    "name": "PNSE Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SONA",
+    "name": "SONA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SFAN",
+    "name": "SFAN Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PTSP",
+    "name": "PTSP Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "NICK",
+    "name": "NICK Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "ESTA",
+    "name": "ESTA Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "FORU",
+    "name": "FORU Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "GREN",
+    "name": "GREN Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AIMS",
+    "name": "AIMS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "OCAP",
+    "name": "OCAP Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SHID",
+    "name": "SHID Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SQMI",
+    "name": "SQMI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AGAR",
+    "name": "AGAR Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "AYLS",
+    "name": "AYLS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "CSMI",
+    "name": "CSMI Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "RONY",
+    "name": "RONY Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "TECH",
+    "name": "TECH Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "UANG",
+    "name": "UANG Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SGER",
+    "name": "SGER Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "KMDS",
+    "name": "KMDS Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "PLAN",
+    "name": "PLAN Indonesia Tbk",
+    "sector": "Consumer Cyclicals",
+    "board": "Utama",
+    "status": "ACTIVE"
+  },
+  {
+    "ticker": "SIAP",
+    "name": "SIAP Indonesia Tbk",
+    "sector": "Industrials",
+    "board": "Utama",
+    "status": "ACTIVE"
+  }
+]
