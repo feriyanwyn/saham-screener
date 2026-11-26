@@ -4,7 +4,11 @@ Digunakan sebagai fallback gratis, data historis jangka panjang, dan prototyping
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional
 import pandas as pd
-import yfinance as yf
+import requests
+try:
+    import yfinance as yf
+except ImportError:
+    yf = None
 from src.data_collection.base_provider import BaseDataProvider
 from config.idx_constants import align_to_tick, get_tick_size
 

@@ -18,7 +18,11 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 import pandas as pd
-import yfinance as yf
+import requests
+try:
+    import yfinance as yf
+except ImportError:
+    yf = None
 
 from config.settings import settings
 from config.idx_constants import IDX_SECTORS, IDX_BOARDS, IDX_STATUSES, align_to_tick, get_tick_size
@@ -51,12 +55,54 @@ app.add_middleware(
 )
 
 # Configure yfinance cache in /tmp for serverless environments (Vercel)
-if os.getenv("VERCEL"):
+if os.getenv("VERCEL") and yf is not None:
     try:
         os.makedirs("/tmp/py-yfinance", exist_ok=True)
         yf.set_tz_cache_location("/tmp/py-yfinance")
     except Exception:
         pass
+
+
+def _yf_chart_fetch(symbol: str, interval: str = "1d", range_: str = "5d") -> Optional[Dict[str, Any]]:
+    """Lightweight Yahoo Finance v8 HTTP JSON fetcher (no heavy curl_cffi/lxml needed on Vercel)."""
+    try:
+        resp = requests.get(
+            f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+            params={"interval": interval, "range": range_},
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"},
+            timeout=10,
+        )
+        if resp.status_code != 200:
+            return None
+        res_list = resp.json().get("chart", {}).get("result") or []
+        if not res_list:
+            return None
+        r0 = res_list[0]
+        meta = r0.get("meta") or {}
+        ts_list = r0.get("timestamp") or []
+        q0 = (r0.get("indicators") or {}).get("quote", [{}])[0]
+        opens = q0.get("open") or []
+        highs = q0.get("high") or []
+        lows = q0.get("low") or []
+        closes = q0.get("close") or []
+        vols = q0.get("volume") or []
+
+        rows = []
+        for idx, ts in enumerate(ts_list):
+            cl = closes[idx] if idx < len(closes) else None
+            if cl is None:
+                continue
+            rows.append({
+                "timestamp": ts,
+                "open": opens[idx] if idx < len(opens) and opens[idx] is not None else cl,
+                "high": highs[idx] if idx < len(highs) and highs[idx] is not None else cl,
+                "low": lows[idx] if idx < len(lows) and lows[idx] is not None else cl,
+                "close": cl,
+                "volume": int(vols[idx] or 0) if idx < len(vols) and vols[idx] is not None else 0,
+            })
+        return {"meta": meta, "rows": rows}
+    except Exception:
+        return None
 
 # Inisialisasi DB saat startup
 try:
@@ -467,42 +513,32 @@ def _fetch_single_real_quote(item: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         except Exception:
             pass
 
-    # 3. Yahoo Finance (.JK / ^JKSE)
+    # 3. Yahoo Finance (.JK / ^JKSE) via lightweight HTTP v8 JSON (or yfinance if installed)
     try:
         yf_sym = "^JKSE" if ticker in ["^JKSE", "IHSG"] else f"{ticker}.JK"
-        t = yf.Ticker(yf_sym)
-        fi = getattr(t, "fast_info", None)
-        last_price = float(fi["lastPrice"]) if fi and fi.get("lastPrice") else None
-        prev_close = float(fi["previousClose"]) if fi and fi.get("previousClose") else None
-        volume = int(fi.get("lastVolume", 0) or 0) if fi else 0
-        day_open = float(fi.get("open", 0) or 0) if fi else 0.0
-        day_high = float(fi.get("dayHigh", 0) or 0) if fi else 0.0
-        day_low = float(fi.get("dayLow", 0) or 0) if fi else 0.0
-
-        if not last_price or last_price <= 0:
-            hist = t.history(period="5d", interval="1d")
-            if hist is not None and not hist.empty:
-                last_row = hist.iloc[-1]
-                last_price = float(last_row["Close"])
-                prev_close = float(hist.iloc[-2]["Close"]) if len(hist) >= 2 else last_price
-                day_open = float(last_row.get("Open", prev_close))
-                day_high = float(last_row.get("High", last_price))
-                day_low = float(last_row.get("Low", last_price))
-                volume = int(last_row.get("Volume", 0) or 0)
-
-        if not last_price or last_price <= 0:
-            return None
-
-        if not prev_close or prev_close <= 0:
-            prev_close = last_price
-
-        payload = _build_quote_payload(
-            ticker, item, last_price, prev_close,
-            day_open or prev_close, day_high or last_price, day_low or last_price,
-            volume, "yahoo_realtime", bid=None, ask=None
-        )
-        _LIVE_QUOTES_CACHE[ticker] = payload
-        return payload
+        chart = _yf_chart_fetch(yf_sym, interval="1d", range_="5d")
+        if chart and chart.get("rows"):
+            meta = chart["meta"]
+            rows = chart["rows"]
+            last_row = rows[-1]
+            prev_row = rows[-2] if len(rows) >= 2 else last_row
+            last_price = float(meta.get("regularMarketPrice") or last_row["close"])
+            prev_close = float(meta.get("chartPreviousClose") or prev_row["close"] or last_price)
+            if len(rows) >= 2 and prev_row.get("close"):
+                prev_close = float(prev_row["close"])
+            day_open = float(last_row.get("open") or prev_close)
+            day_high = float(last_row.get("high") or last_price)
+            day_low = float(last_row.get("low") or last_price)
+            volume = int(meta.get("regularMarketVolume") or last_row.get("volume") or 0)
+            if last_price > 0:
+                payload = _build_quote_payload(
+                    ticker, item, last_price, prev_close,
+                    day_open, day_high, day_low,
+                    volume, "yahoo_realtime", bid=None, ask=None
+                )
+                _LIVE_QUOTES_CACHE[ticker] = payload
+                return payload
+        return None
     except Exception:
         return None
 
@@ -525,22 +561,15 @@ def get_market_overview(provider_name: Optional[str] = None, db: Session = Depen
     ihsg_change_pct = None
     ihsg_status = "UNAVAILABLE"
     try:
-        t_ihsg = yf.Ticker("^JKSE")
-        fi_ihsg = getattr(t_ihsg, "fast_info", None)
-        if fi_ihsg and fi_ihsg.get("lastPrice"):
-            ihsg_price = round(float(fi_ihsg["lastPrice"]), 2)
-            prev_ihsg = float(fi_ihsg.get("previousClose") or ihsg_price)
+        chart_ihsg = _yf_chart_fetch("^JKSE", interval="1d", range_="5d")
+        if chart_ihsg and chart_ihsg.get("rows"):
+            meta = chart_ihsg["meta"]
+            rows = chart_ihsg["rows"]
+            ihsg_price = round(float(meta.get("regularMarketPrice") or rows[-1]["close"]), 2)
+            prev_ihsg = float(rows[-2]["close"]) if len(rows) >= 2 else float(meta.get("chartPreviousClose") or ihsg_price)
             ihsg_change = round(ihsg_price - prev_ihsg, 2)
             ihsg_change_pct = round((ihsg_change / prev_ihsg) * 100, 2) if prev_ihsg else 0.0
             ihsg_status = "OPEN"
-        else:
-            hist_ihsg = t_ihsg.history(period="5d", interval="1d")
-            if hist_ihsg is not None and not hist_ihsg.empty:
-                ihsg_price = round(float(hist_ihsg["Close"].iloc[-1]), 2)
-                prev_ihsg = float(hist_ihsg["Close"].iloc[-2]) if len(hist_ihsg) >= 2 else ihsg_price
-                ihsg_change = round(ihsg_price - prev_ihsg, 2)
-                ihsg_change_pct = round((ihsg_change / prev_ihsg) * 100, 2) if prev_ihsg else 0.0
-                ihsg_status = "OPEN"
     except Exception:
         pass
 
@@ -834,6 +863,38 @@ def _batch_fetch_real_quotes_timeseries(seed_items: List[Dict[str, Any]]) -> Dic
     if not seed_items:
         return results
 
+    if yf is None:
+        # Lightweight parallel HTTP v8 fetch (used on Vercel Serverless without yfinance)
+        def _fetch_one_http(item: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+            tk = item["ticker"]
+            chart = _yf_chart_fetch(f"{tk}.JK", interval="1d", range_="1mo")
+            if not chart or len(chart.get("rows", [])) < 2:
+                return None
+            rows = chart["rows"]
+            closes = pd.Series([float(r["close"]) for r in rows])
+            vols = [int(r.get("volume") or 0) for r in rows]
+            last_row = rows[-1]
+            prev_row = rows[-2]
+            last_price = round(float(last_row["close"]), 0)
+            prev_close = round(float(prev_row["close"]), 0)
+            if last_price <= 0:
+                return None
+            avg_vol = sum(vols[:-1]) / max(1, len(vols) - 1) if len(vols) > 2 else max(1, vols[-1])
+            rel_vol = round(max(0.1, min(5.0, (vols[-1] / avg_vol) if avg_vol > 0 else 1.0)), 2)
+            rsi_s = TechnicalAnalysisEngine.calculate_rsi(closes, period=14)
+            rsi_val = float(rsi_s.iloc[-1]) if not rsi_s.empty and not pd.isna(rsi_s.iloc[-1]) else 50.0
+            return _build_quote_payload(
+                tk, item, last_price, prev_close,
+                float(last_row["open"]), float(last_row["high"]), float(last_row["low"]),
+                vols[-1], "yahoo_realtime", rel_vol=rel_vol, rsi_est=round(max(5.0, min(95.0, rsi_val)), 1)
+            )
+
+        with ThreadPoolExecutor(max_workers=16) as ex:
+            for q in ex.map(_fetch_one_http, seed_items[:80]):
+                if q:
+                    results[q["ticker"]] = q
+        return results
+
     seed_map = {s["ticker"]: s for s in seed_items}
     chunk_size = 120
     for start in range(0, len(seed_items), chunk_size):
@@ -1077,8 +1138,8 @@ def get_real_stock_history(
         except Exception:
             df = pd.DataFrame()
 
-    # 3. Yahoo Finance (.JK / ^JKSE)
-    if df.empty:
+    # 3. Yahoo Finance (.JK / ^JKSE) via yfinance or lightweight HTTP v8 JSON
+    if df.empty and yf is not None:
         try:
             t = yf.Ticker(formatted)
             hist = t.history(interval=interval, period=period)
@@ -1087,6 +1148,13 @@ def get_real_stock_history(
                 data_source = "yahoo_realtime"
         except Exception:
             df = pd.DataFrame()
+
+    if df.empty:
+        chart = _yf_chart_fetch(formatted, interval=interval, range_=period)
+        if chart and chart.get("rows"):
+            df = pd.DataFrame(chart["rows"][-limit:])
+            df["datetime"] = pd.to_datetime(df["timestamp"], unit="s", utc=True).dt.tz_convert("Asia/Jakarta").astype(str)
+            data_source = "yahoo_realtime"
 
     if df.empty:
         raise HTTPException(
