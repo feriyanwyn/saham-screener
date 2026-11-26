@@ -12,13 +12,15 @@ class Settings:
     
     # Base Directories
     BASE_DIR: Path = Path(__file__).resolve().parent.parent
-    DATA_DIR: Path = BASE_DIR / "data"
-    MODELS_DIR: Path = BASE_DIR / "models"
+    IS_SERVERLESS: bool = bool(os.getenv("VERCEL") or os.getenv("AWS_LAMBDA_FUNCTION_NAME"))
+    WRITABLE_DIR: Path = Path("/tmp/idx_scalper") if IS_SERVERLESS else BASE_DIR
+    DATA_DIR: Path = WRITABLE_DIR / "data"
+    MODELS_DIR: Path = WRITABLE_DIR / "models"
     
     # Database
     DATABASE_URL: str = os.getenv(
         "DATABASE_URL", 
-        f"sqlite:///{BASE_DIR / 'data' / 'idx_scalper.db'}"
+        f"sqlite:///{WRITABLE_DIR / 'data' / 'idx_scalper.db'}" if IS_SERVERLESS else f"sqlite:///{BASE_DIR / 'data' / 'idx_scalper.db'}"
     )
     
     # Provider Settings
@@ -42,8 +44,14 @@ class Settings:
 # Global Settings Instance
 settings = Settings()
 
-# Ensure directories exist
-os.makedirs(settings.DATA_DIR / "raw", exist_ok=True)
-os.makedirs(settings.DATA_DIR / "processed", exist_ok=True)
-os.makedirs(settings.MODELS_DIR / "lstm", exist_ok=True)
-os.makedirs(settings.MODELS_DIR / "bilstm", exist_ok=True)
+# Ensure directories exist safely (ignore read-only FS errors in serverless)
+for _d in [
+    settings.DATA_DIR / "raw",
+    settings.DATA_DIR / "processed",
+    settings.MODELS_DIR / "lstm",
+    settings.MODELS_DIR / "bilstm",
+]:
+    try:
+        os.makedirs(_d, exist_ok=True)
+    except OSError:
+        pass

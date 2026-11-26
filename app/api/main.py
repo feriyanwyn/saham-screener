@@ -41,8 +41,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Configure yfinance cache in /tmp for serverless environments (Vercel)
+if os.getenv("VERCEL"):
+    try:
+        os.makedirs("/tmp/py-yfinance", exist_ok=True)
+        yf.set_tz_cache_location("/tmp/py-yfinance")
+    except Exception:
+        pass
+
 # Inisialisasi DB saat startup
-init_db()
+try:
+    init_db()
+except Exception:
+    pass
 
 
 class BuyOrderRequest(BaseModel):
