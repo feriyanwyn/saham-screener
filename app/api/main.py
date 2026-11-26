@@ -1,6 +1,15 @@
 """FastAPI REST Service for AI-Powered IDX Stock Prediction & Scalping Assistant."""
-from typing import Optional, List, Dict, Any
 import os
+if (
+    os.getenv("VERCEL")
+    or os.getenv("VERCEL_ENV")
+    or os.getenv("AWS_LAMBDA_FUNCTION_NAME")
+    or not os.access(os.path.dirname(os.path.abspath(__file__)), os.W_OK)
+):
+    os.environ.setdefault("XDG_CACHE_HOME", "/tmp")
+    os.environ.setdefault("HOME", "/tmp")
+
+from typing import Optional, List, Dict, Any
 import time
 from concurrent.futures import ThreadPoolExecutor
 from fastapi import FastAPI, HTTPException, Query, Depends
@@ -1184,8 +1193,18 @@ def get_real_stock_history(
     return payload
 
 
-# Mount modern Fintech SaaS Web Frontend
-web_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "web")
-if os.path.exists(web_dir):
-    app.mount("/", StaticFiles(directory=web_dir, html=True), name="static_web")
+@app.get("/api/health")
+def health_check():
+    """Lightweight health check endpoint for Vercel/monitoring."""
+    return {"status": "ok", "serverless": settings.IS_SERVERLESS, "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S")}
+
+
+# Mount modern Fintech SaaS Web Frontend (local dev only; on Vercel 'web' service handles '/')
+if not settings.IS_SERVERLESS:
+    try:
+        web_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "web")
+        if os.path.exists(web_dir):
+            app.mount("/", StaticFiles(directory=web_dir, html=True), name="static_web")
+    except Exception:
+        pass
 

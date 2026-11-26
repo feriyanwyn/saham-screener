@@ -12,7 +12,12 @@ class Settings:
     
     # Base Directories
     BASE_DIR: Path = Path(__file__).resolve().parent.parent
-    IS_SERVERLESS: bool = bool(os.getenv("VERCEL") or os.getenv("AWS_LAMBDA_FUNCTION_NAME"))
+    IS_SERVERLESS: bool = bool(
+        os.getenv("VERCEL")
+        or os.getenv("VERCEL_ENV")
+        or os.getenv("AWS_LAMBDA_FUNCTION_NAME")
+        or not os.access(BASE_DIR, os.W_OK)
+    )
     WRITABLE_DIR: Path = Path("/tmp/idx_scalper") if IS_SERVERLESS else BASE_DIR
     DATA_DIR: Path = WRITABLE_DIR / "data"
     MODELS_DIR: Path = WRITABLE_DIR / "models"
