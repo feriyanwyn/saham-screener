@@ -63,14 +63,20 @@ if os.getenv("VERCEL") and yf is not None:
         pass
 
 
-def _yf_chart_fetch(symbol: str, interval: str = "1d", range_: str = "5d") -> Optional[Dict[str, Any]]:
-    """Lightweight Yahoo Finance v8 HTTP JSON fetcher (no heavy curl_cffi/lxml needed on Vercel)."""
+from requests.adapters import HTTPAdapter
+
+_YF_SESSION = requests.Session()
+_YF_SESSION.mount("https://", HTTPAdapter(pool_connections=50, pool_maxsize=50))
+_YF_SESSION.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+
+
+def _yf_chart_fetch(symbol: str, interval: str = "1d", range_: str = "5d", timeout: float = 6.0) -> Optional[Dict[str, Any]]:
+    """Lightweight Yahoo Finance v8 HTTP JSON fetcher with pooled keep-alive connections."""
     try:
-        resp = requests.get(
+        resp = _YF_SESSION.get(
             f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
             params={"interval": interval, "range": range_},
-            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"},
-            timeout=10,
+            timeout=timeout,
         )
         if resp.status_code != 200:
             return None
@@ -889,8 +895,8 @@ def _batch_fetch_real_quotes_timeseries(seed_items: List[Dict[str, Any]]) -> Dic
                 vols[-1], "yahoo_realtime", rel_vol=rel_vol, rsi_est=round(max(5.0, min(95.0, rsi_val)), 1)
             )
 
-        with ThreadPoolExecutor(max_workers=16) as ex:
-            for q in ex.map(_fetch_one_http, seed_items[:80]):
+        with ThreadPoolExecutor(max_workers=40) as ex:
+            for q in ex.map(_fetch_one_http, seed_items):
                 if q:
                     results[q["ticker"]] = q
         return results
@@ -1014,8 +1020,8 @@ def get_real_market_screener(
 
     # Rebuild full universe if expired or empty
     if force_refresh or not _REAL_SCREENER_CACHE or (now - _REAL_SCREENER_TIMESTAMP > 180.0):
-        # 1. Batch-fetch real 1-month time-series & latest quotes for top 240 active stocks
-        active_seeds = [s for s in IDX_MASTER_SEED if s.get("status") in ["ACTIVE", "NEWLY_LISTED"]][:240]
+        # 1. Batch-fetch real 1-month time-series & latest quotes for all active stocks
+        active_seeds = [s for s in IDX_MASTER_SEED if s.get("status") in ["ACTIVE", "NEWLY_LISTED"]]
         try:
             batch_quotes = _batch_fetch_real_quotes_timeseries(active_seeds)
             for tk, q in batch_quotes.items():
